@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Young+Serif&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -14,7 +15,7 @@ body {
 }
 
 h1 {
-	font-family: inherit;
+	font-family: Comfortaa;
 	font-style: inherit;
 	font-weight: 700;
 	font-size: 64px;
@@ -39,11 +40,15 @@ h3 {
 
 h4 {
 	font-family: inherit;
-	font-style: inherit;
+	font-size: 1.25rem;
 	font-weight: 700;
 	font-size: 20px;
-	line-height: 28px;
-}
+	line-height: 1.75rem; /* 140% */
+    letter-spacing: -0.025rem;
+
+    color: var(--Brown, #473D32);
+    text-align: center;
+    }
 
 p {
 	font-family: inherit;
@@ -64,4 +69,8 @@ p {
 
 .btn:hover {
 	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.bg-primary-500 {
+    color: white;
 }
