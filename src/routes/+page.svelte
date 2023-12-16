@@ -1,16 +1,21 @@
+<script>
+  import { Avatar } from "@skeletonlabs/skeleton";
+  import { Paginator } from '@skeletonlabs/skeleton';
+
+</script>
 <main>
-    <div class="flex px-[4rem] pb-8 gap-32">
+    <div class="flex px-[7.62rem] pb-8 gap-[4rem]">
         <div class="flex-col w-[21.8125rem] mt-[12rem]">
             <h1>Nourishing Wellness, Naturally</h1>
             <p class="my-4">Unlock the power of Moringa for a healthier you.</p>
             <a href="/shop" class="btn variant-filled-primary">Get Started</a>
         </div>
         <div>
-            <img alt="Leaves" src="src/lib/Images/leaves.jpg" class="w-[52rem] h-[45rem] rounded-2xl object-cover">
+            <img alt="Leaves" src="src/lib/Images/leaves.jpg" class="w-[48rem] h-[45rem] rounded-2xl object-cover">
         </div>
     </div>
 
-    <div class="bg-primary-500 w-[90rem] h-[43rem] px-[4rem] py-8">
+    <div class="bg-primary-500 w-[90rem] h-[46.75rem] px-[7.62rem] py-16">
         <h2>Benefits</h2>
         <h3>What makes our Moringa Leaves so amazing.</h3>
         <div class="grid grid-cols-3 gap-20 pt-8">
@@ -99,9 +104,9 @@
         </div>
     </div>
 
-    <div class="px-[4rem] py-16">
+    <div class="px-[7.62rem] py-16">
         <h2>Our Products</h2>
-        <div class="grid grid-cols-4 my-8">
+        <div class="flex gap-[8.12rem] smy-8">
             <!-- Product Item -->
             <div class="w-fit">
                 <img alt="Moringa Capsules" src="src/lib/Images/bottle.png" class="w-[12.5rem] h-[12.5rem] border">
@@ -116,6 +121,132 @@
                 <p><b>$19.99 CAD</b></p>
                 <button class="btn bg-primary-500 w-full">Add to Cart</button>
             </div>
+            <div class="w-fit">
+                <img alt="Moringa Capsules" src="src/lib/Images/bottle.png" class="w-[12.5rem] h-[12.5rem] border">
+                <p>Moringa Capsules</p>
+                <div class="flex">
+                    <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                    <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                    <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                    <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                    <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                </div>
+                <p><b>$19.99 CAD</b></p>
+                <button class="btn bg-primary-500 w-full">Add to Cart</button>
+            </div>
+            <div class="w-fit">
+                <img alt="Moringa Capsules" src="src/lib/Images/bottle.png" class="w-[12.5rem] h-[12.5rem] border">
+                <p>Moringa Capsules</p>
+                <div class="flex">
+                    <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                    <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                    <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                    <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                    <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                </div>
+                <p><b>$19.99 CAD</b></p>
+                <button class="btn bg-primary-500 w-full">Add to Cart</button>
+            </div>
+            <div class="w-fit">
+                <img alt="Moringa Capsules" src="src/lib/Images/bottle.png" class="w-[12.5rem] h-[12.5rem] border">
+                <p>Moringa Capsules</p>
+                <div class="flex">
+                    <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                    <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                    <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                    <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                    <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                </div>
+                <p><b>$19.99 CAD</b></p>
+                <button class="btn bg-primary-500 w-full">Add to Cart</button>
+            </div>
         </div>
+    </div>
+    <div class="bg-primary-500 w-[90rem] h-[46.75rem] px-[7.62rem] py-16">
+        <h2>Our Story</h2>
+        <div class="flex gap-[2.94rem]">
+            <div class="py-[5.56rem] w-[41.3125rem]">
+                <p>
+                    Malunggay 4 Life🪴 was born because I was looking for herbal medicine or food supplement that would boost my family's immune system. I want my family and friends to live healthy. To improve their well being and extend their life.
+                </p>
+                <br/>
+                <p>
+                    We are the first consumers of “Malunggay 4 Life🌿” from capsule to tea to a powder for smoothie and add to salad and soup or other dishes. Since then, it has become part of our daily life. Each one of us in the family and friends have health issues, taking moringa capsules everyday makes our body healthy and strong.
+                </p>
+                <br/>    
+                <p>
+                    That is why I produced “Malunggay 4 Life 🌿“ which is Moringa Oliefera products for my family, friends and to share it to everyone!
+                </p>
+                <br/>
+                <p>
+                    Through research I found moringa plants (Moringa Oleifera)🌿. According to relevant sources, Moringa plants ( Moringa Oleifera)🌿 have lots of nutrients and benefits. They called it a miracle tree, a superfood and a tree of life.
+                </p>
+            </div>
+            <img alt="Our Story" src="src/lib/Images/story.jpg" class="object-cover w-[35.375rem] h-[33rem]">
+        </div>
+    </div>
+    <div class="px-[7.62rem] py-16 flex flex-col gap-[4.31rem]">
+        <div class="flex flex-col gap-[1rem]">
+            <h2>Customer Reviews</h2>
+            <h3>Hear it from our customers just like you.</h3>
+        </div>
+        <div class="flex gap-[3.12rem]">
+            <!-- Review Card -->
+            <div class="bg-tertiary-500 flex flex-col gap-[1.31rem] w-[25rem] h-[14.375rem] px-[2.5rem] py-[2.5rem] rounded-xl">
+                <div class="flex gap-[4rem] content-center">
+                    <div>
+                        <Avatar src="" width="w-[2.5rem]" rounded="rounded-full" />
+                    </div>
+                    <p class="text-center"><b>
+                        John Doe
+                        <br/>
+                        Calgary, Alberta
+                    </b></p>
+                    <p class="place-self-center">
+                        <b>4.5</b>
+                    </p>
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                </div>
+            </div>
+            <div class="bg-tertiary-500 flex flex-col gap-[1.31rem] w-[25rem] h-[14.375rem] px-[2.5rem] py-[2.5rem] rounded-xl">
+                <div class="flex gap-[4rem] content-center">
+                    <div>
+                        <Avatar src="" width="w-[2.5rem]" rounded="rounded-full" />
+                    </div>
+                    <p class="text-center"><b>
+                        John Doe
+                        <br/>
+                        Calgary, Alberta
+                    </b></p>
+                    <p class="place-self-center">
+                        <b>4.5</b>
+                    </p>
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                </div>
+            </div>
+            <div class="bg-tertiary-500 flex flex-col gap-[1.31rem] w-[25rem] h-[14.375rem] px-[2.5rem] py-[2.5rem] rounded-xl">
+                <div class="flex gap-[4rem] content-center">
+                    <div>
+                        <Avatar src="" width="w-[2.5rem]" rounded="rounded-full" />
+                    </div>
+                    <p class="text-center"><b>
+                        John Doe
+                        <br/>
+                        Calgary, Alberta
+                    </b></p>
+                    <p class="place-self-center">
+                        <b>4.5</b>
+                    </p>
+                </div>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                </div>
+            </div>
+        </div>
+        
     </div>
 </main>

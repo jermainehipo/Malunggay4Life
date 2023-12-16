@@ -14,7 +14,7 @@
         <i class="fa-solid fa-xmark fa-2xl"></i>
     </button>
     <div class="container pb-0">
-        <img class="container w-[10rem]" alt="Endurance Elite" src="$lib/Logos/ee-icon.png">
+        <img class="container w-[10rem]" alt="Malunggay4Life" src="src\lib\Logos\M4L-transparent.png">
     </div>
 
     <div class="m-8">
