@@ -1,6 +1,7 @@
 <script>
   import { Avatar } from "@skeletonlabs/skeleton";
   import { Paginator } from '@skeletonlabs/skeleton';
+  import PageFooter from './PageFooter.svelte';
 
 </script>
 <main>
@@ -249,4 +250,5 @@
         </div>
         
     </div>
+    <PageFooter />
 </main>
