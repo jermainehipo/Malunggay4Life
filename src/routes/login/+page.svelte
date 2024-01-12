@@ -2,18 +2,18 @@
     import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
     import { enhance } from '$app/forms';
 
-    const auth = getAuth();
+    // const auth = getAuth();
     let email = "";
     let password = "";
 
     async function login() {
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      console.log('User logged in successfully!');
-    } catch (error) {
-      console.error('Error logging in:');
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        console.log('User logged in successfully!');
+      } catch (error) {
+        console.error('Error logging in:');
+      }
     }
-  }
 </script>
 
 <main>

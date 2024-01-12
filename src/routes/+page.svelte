@@ -4,9 +4,9 @@
   import PageFooter from './PageFooter.svelte';
 
 </script>
-<main class="container">
-    <div class="max-w-[90rem] flex flex-col lg:flex-row px-[4rem] lg:px-[7.62rem] pb-8 gap-[4rem]">
-        <div class="flex-col max-w-[20rem] mt-[4rem] lg:mt-[12rem]">
+<main class="container max-w-[90rem]">
+    <div class="max-w-[90rem] flex flex-col lg:flex-row px-[4rem] lg:px-[7.62rem] pb-8 gap-[6rem]">
+        <div class="flex-col max-w-[20rem] mt-[4rem] lg:mt-[9rem]">
             <h1>Nourishing Wellness, Naturally</h1>
             <p class="my-4">Unlock the power of Moringa for a healthier you.</p>
             <a href="/shop" class="btn variant-filled-primary">Get Started</a>
@@ -103,9 +103,9 @@
         </div>
     </div>
 
-    <div class="px-[4rem] lg:px-[7.62rem] py-16">
+    <div class="px-[4rem] max-w-[90rem] lg:px-[7.62rem] py-16">
         <h2>Our Products</h2>
-        <div class="flex flex-wrap justify-center gap-[4rem] lg:gap-[8.12rem] my-8">
+        <div class="flex flex-wrap justify-center gap-[4rem] lg:gap-[6rem] my-8">
             <!-- Product Item -->
             <div class="w-fit">
                 <img alt="Moringa Capsules" src="Images/bottle.png" class="w-[12.5rem] h-[12.5rem] border">
@@ -161,6 +161,7 @@
             </div>
         </div>
     </div>
+
     <div class="bg-primary-500 max-w-[90rem] min-h-[46.75rem] px-[4rem] lg:px-[7.62rem] py-16">
         <h2>Our Story</h2>
         <div class="lg:flex gap-[2.94rem]">
@@ -184,6 +185,7 @@
             <img alt="Our Story" src="Images/story.jpg" class="object-cover w-[35.375rem] h-[33rem]">
         </div>
     </div>
+
     <div class="w-[90rem] px-[4rem] lg:px-[7.62rem] py-16 flex flex-col gap-[4.31rem]">
         <div class="flex flex-col gap-[1rem]">
             <h2>Customer Reviews</h2>
