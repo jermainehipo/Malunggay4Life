@@ -36,7 +36,7 @@
 		<AppBar background="bg-secondary-500">
 			<svelte:fragment slot="lead">
 				<a href="/">
-					<img class="h-[3.75rem]" alt="Malunggay 4 Life Logo" src="src\lib\Logos\M4L-transparent.png">
+					<img class="h-[3.75rem]" alt="Malunggay 4 Life Logo" src="/Logos/M4L-transparent.png">
 				</a>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">

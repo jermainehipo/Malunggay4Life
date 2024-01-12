@@ -12,7 +12,7 @@
             <a href="/shop" class="btn variant-filled-primary">Get Started</a>
         </div>
         <div>
-            <img alt="Leaves" src="src/lib/Images/leaves.jpg" class="w-[48rem] h-[45rem] rounded-2xl object-cover">
+            <img alt="Leaves" src="Images/leaves.jpg" class="w-[48rem] h-[45rem] rounded-2xl object-cover">
         </div>
     </div>
 
@@ -110,7 +110,7 @@
         <div class="flex gap-[8.12rem] smy-8">
             <!-- Product Item -->
             <div class="w-fit">
-                <img alt="Moringa Capsules" src="src/lib/Images/bottle.png" class="w-[12.5rem] h-[12.5rem] border">
+                <img alt="Moringa Capsules" src="Images/bottle.png" class="w-[12.5rem] h-[12.5rem] border">
                 <p>Moringa Capsules</p>
                 <div class="flex">
                     <i class="fa-solid fa-star" style="color: #ffd500;"></i>
@@ -123,7 +123,7 @@
                 <button class="btn bg-primary-500 w-full">Add to Cart</button>
             </div>
             <div class="w-fit">
-                <img alt="Moringa Capsules" src="src/lib/Images/bottle.png" class="w-[12.5rem] h-[12.5rem] border">
+                <img alt="Moringa Capsules" src="Images/bottle.png" class="w-[12.5rem] h-[12.5rem] border">
                 <p>Moringa Capsules</p>
                 <div class="flex">
                     <i class="fa-solid fa-star" style="color: #ffd500;"></i>
@@ -136,7 +136,7 @@
                 <button class="btn bg-primary-500 w-full">Add to Cart</button>
             </div>
             <div class="w-fit">
-                <img alt="Moringa Capsules" src="src/lib/Images/bottle.png" class="w-[12.5rem] h-[12.5rem] border">
+                <img alt="Moringa Capsules" src="Images/bottle.png" class="w-[12.5rem] h-[12.5rem] border">
                 <p>Moringa Capsules</p>
                 <div class="flex">
                     <i class="fa-solid fa-star" style="color: #ffd500;"></i>
@@ -149,7 +149,7 @@
                 <button class="btn bg-primary-500 w-full">Add to Cart</button>
             </div>
             <div class="w-fit">
-                <img alt="Moringa Capsules" src="src/lib/Images/bottle.png" class="w-[12.5rem] h-[12.5rem] border">
+                <img alt="Moringa Capsules" src="Images/bottle.png" class="w-[12.5rem] h-[12.5rem] border">
                 <p>Moringa Capsules</p>
                 <div class="flex">
                     <i class="fa-solid fa-star" style="color: #ffd500;"></i>
@@ -183,7 +183,7 @@
                     Through research I found moringa plants (Moringa Oleifera)🌿. According to relevant sources, Moringa plants ( Moringa Oleifera)🌿 have lots of nutrients and benefits. They called it a miracle tree, a superfood and a tree of life.
                 </p>
             </div>
-            <img alt="Our Story" src="src/lib/Images/story.jpg" class="object-cover w-[35.375rem] h-[33rem]">
+            <img alt="Our Story" src="Images/story.jpg" class="object-cover w-[35.375rem] h-[33rem]">
         </div>
     </div>
     <div class="px-[7.62rem] py-16 flex flex-col gap-[4.31rem]">
