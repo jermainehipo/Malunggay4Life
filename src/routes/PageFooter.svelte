@@ -1,5 +1,5 @@
-<div class="bg-primary-500 px-[3.75rem] pt-[5rem] pb-[3.7rem] flex flex-col gap-[7rem]">
-    <div class="flex gap-[12rem]">
+<div class="bg-primary-500 max-w-[90rem] px-[3.75rem] pt-[5rem] pb-[3.7rem] flex flex-col gap-[7rem]">
+    <div class="flex flex-col md:flex-row gap-[2rem] md:gap-[12rem]">
         <div class="flex flex-col gap-[0.87rem]">
             <img alt="Malunggay 4 Life" src="Logos/M4L-white-transparent.png" class="w-[24.9375rem]">
             <p class="w-[18.25rem]">Our vision is to improve your wellness with our natural Moringa leaves.</p>

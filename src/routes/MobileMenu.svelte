@@ -8,16 +8,21 @@
     }
 
 </script>
-<main>
+<main class="p-8 bg-secondary-500 h-full">
     <!-- (August 6th, 2023) xmark from FontAwesome. https://fontawesome.com/icons/xmark?f=classic&s=solid&sz=2xl -->
-    <button class="pt-8 pl-8" on:click={closeDrawer}>
-        <i class="fa-solid fa-xmark fa-2xl"></i>
-    </button>
-    <div class="container pb-0">
-        <img class="container w-[10rem]" alt="Malunggay4Life" src="src\lib\Logos\M4L-transparent.png">
+    <div class="flex gap-[3rem]">
+        <button on:click={closeDrawer}>
+            <i class="fa-solid fa-xmark fa-2xl"></i>
+        </button>
+        <div class="">
+            <img class="max-w-[20rem]" alt="Malunggay4Life" src="Logos\M4L-transparent.png">
+        </div>
     </div>
 
-    <div class="m-8">
-        Store
+    <div class="flex flex-col p-8 pt-20 gap-8">
+        <a href="/shop" class="font-bold">Shop</a>
+        <a href="/contact-us" class="font-bold">Contact Us</a>
+        <a href="/our-story" class="font-bold">Our Story</a>
+        <a href="/our-story" class="font-bold">Account</a>
     </div>
 </main>
