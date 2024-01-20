@@ -1,5 +1,5 @@
 <script>
-	let value = 1;
+	export let value = 1;
 
 	function increment() {
 		value += 1;

@@ -1,5 +1,5 @@
 import bottle from "../lib/Images/bottle.png";
-export const load = async ({ }) => {
+export const load = async ({ params }) => {
 
     //Set page data
     const items = [
@@ -11,6 +11,7 @@ export const load = async ({ }) => {
                 alt: "Moringa Capsule Bottle"
             },
             pricePerItem: 19.99,
+            slug: "moringa-capsules"
         },
         {
             id: 2,
@@ -20,6 +21,7 @@ export const load = async ({ }) => {
                 alt: "Moringa Capsule Bottle"
             },
             pricePerItem: 19.99,
+            slug: "moringa-capsules"
         },
         {
             id: 3,
@@ -29,6 +31,7 @@ export const load = async ({ }) => {
                 alt: "Moringa Capsule Bottle"
             },
             pricePerItem: 19.99,
+            slug: "moringa-capsules"
         },
         {
             id: 4,
@@ -38,6 +41,7 @@ export const load = async ({ }) => {
                 alt: "Moringa Capsule Bottle"
             },
             pricePerItem: 19.99,
+            slug: "moringa-capsules"
         },
     ]
 
