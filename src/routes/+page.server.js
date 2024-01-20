@@ -46,6 +46,6 @@ export const load = async ({ params }) => {
     ]
 
     return {
-        items
+        items,
     };
 };

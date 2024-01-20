@@ -1,5 +1,8 @@
 <script>
-	export let value = 1;
+	/**
+	 * @type {number}
+	 */
+	 export let value;
 
 	function increment() {
 		value += 1;
@@ -10,18 +13,19 @@
 			value -= 1;
 		}
 	}
+
 </script>
 
 <div class="input w-fit flex gap-[0.4rem]">
 	<button on:click={decrement}>
-        <!-- (January 20th, 2023) minus from FontAwesome. https://fontawesome.com/icons/minus?f=classic&s=solid -->
-        <i class="fa-solid fa-minus"></i>
-    </button>
+		<!-- (January 20th, 2023) minus from FontAwesome. https://fontawesome.com/icons/minus?f=classic&s=solid -->
+		<i class="fa-solid fa-minus"></i>
+	</button>
 	<input type="number" bind:value class="text-center w-[3rem] border-0" />
 	<button on:click={increment}>
-        <!-- (January 20th, 2023) plus from FontAwesome. https://fontawesome.com/icons/plus?f=classic&s=solid -->
-        <i class="fa-solid fa-plus"></i>
-    </button>
+		<!-- (January 20th, 2023) plus from FontAwesome. https://fontawesome.com/icons/plus?f=classic&s=solid -->
+		<i class="fa-solid fa-plus"></i>
+	</button>
 </div>
 
 <style>
