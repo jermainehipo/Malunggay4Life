@@ -118,15 +118,15 @@
 					<a href="/products/{item.slug}">
 						<img src={item.image.src} alt={item.image.alt} class="w-[12.5rem] h-[12.5rem] border" />
 						<p>{item.name}</p>
-						<div class="flex">
-							<i class="fa-solid fa-star" style="color: #ffd500;"></i>
-							<i class="fa-solid fa-star" style="color: #ffd500;"></i>
-							<i class="fa-solid fa-star" style="color: #ffd500;"></i>
-							<i class="fa-solid fa-star" style="color: #ffd500;"></i>
-							<i class="fa-solid fa-star" style="color: #ffd500;"></i>
-						</div>
-						<p><b>${item.pricePerItem}</b></p>
 					</a>
+					<div class="flex">
+						<i class="fa-solid fa-star" style="color: #ffd500;"></i>
+						<i class="fa-solid fa-star" style="color: #ffd500;"></i>
+						<i class="fa-solid fa-star" style="color: #ffd500;"></i>
+						<i class="fa-solid fa-star" style="color: #ffd500;"></i>
+						<i class="fa-solid fa-star" style="color: #ffd500;"></i>
+					</div>
+					<p><b>${item.pricePerItem}</b></p>
 					<button class="btn bg-primary-500 w-full">Add to Cart</button>
 				</div>
 			{/each}

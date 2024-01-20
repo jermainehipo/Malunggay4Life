@@ -1,3 +1,6 @@
+<script>
+    import story from "../../lib/Images/story.jpg";
+</script>
 <main class="container max-w-[90rem] mt-[4.37rem] mb-[4rem]">
     <div class="flex justify-center ">
     </div>
@@ -21,7 +24,7 @@
                     Through thorough research, I discovered the nutritional richness and benefits of Moringa plants (Moringa Oleifera)🌿. Recognized as a miracle tree, superfood, and a tree of life, these findings underscore the significance of incorporating Moringa into our daily lives.
                 </p>                
             </div>
-            <img alt="Our Story" src="Images/story.jpg" class="object-cover w-[35.375rem] h-[33rem]">
+            <img alt="Our Story" src="{story}" class="object-cover w-[35.375rem] h-[33rem]">
         </div>
     </div>
 </main>
