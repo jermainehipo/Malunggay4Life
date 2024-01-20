@@ -6,20 +6,20 @@
         <div class="lg:flex gap-[2.94rem]">
             <div class="py-[5.56rem] max-w-[41.3125rem]">
                 <p>
-                    Malunggay 4 Life🪴 was born because I was looking for herbal medicine or food supplement that would boost my family's immune system. I want my family and friends to live healthy. To improve their well being and extend their life.
+                    Malunggay 4 Life🪴 emerged from my quest for herbal medicine or food supplements that could enhance my family's immune system, promoting a healthier and longer life for them and my friends.
                 </p>
                 <br/>
                 <p>
-                    We are the first consumers of “Malunggay 4 Life🌿” from capsule to tea to a powder for smoothie and add to salad and soup or other dishes. Since then, it has become part of our daily life. Each one of us in the family and friends have health issues, taking moringa capsules everyday makes our body healthy and strong.
-                </p>
-                <br/>    
-                <p>
-                    That is why I produced “Malunggay 4 Life 🌿“ which is Moringa Oliefera products for my family, friends and to share it to everyone!
+                    As the inaugural consumers of "Malunggay 4 Life🌿," we've incorporated it into our daily routines—whether in capsule form, as tea, or as a powder for smoothies, salads, soups, and various dishes. Embracing it has significantly contributed to the overall well-being and resilience of each family member and friend, effectively addressing health issues.
                 </p>
                 <br/>
                 <p>
-                    Through research I found moringa plants (Moringa Oleifera)🌿. According to relevant sources, Moringa plants ( Moringa Oleifera)🌿 have lots of nutrients and benefits. They called it a miracle tree, a superfood and a tree of life.
+                    Motivated by these positive outcomes, I established "Malunggay 4 Life 🌿" to offer Moringa Oleifera products to everyone seeking improved health.
                 </p>
+                <br/>
+                <p>
+                    Through thorough research, I discovered the nutritional richness and benefits of Moringa plants (Moringa Oleifera)🌿. Recognized as a miracle tree, superfood, and a tree of life, these findings underscore the significance of incorporating Moringa into our daily lives.
+                </p>                
             </div>
             <img alt="Our Story" src="Images/story.jpg" class="object-cover w-[35.375rem] h-[33rem]">
         </div>

@@ -60,7 +60,7 @@
 						</button>
 						<a href="/cart" class="btn variant-filled-primary m-0 flex gap-2" data-sveltekit-preload-data="hover">
 							<i class="fa-solid fa-cart-shopping"></i>
-							0
+							Cart 0
 						</a>
 					</div>
 				{:else}
