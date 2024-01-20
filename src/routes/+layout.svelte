@@ -1,13 +1,14 @@
 <script lang="ts">
-	import '../app.postcss';
-	import { AppBar, AppShell, ListBox} from '@skeletonlabs/skeleton';
+	import "../app.postcss";
+	import { AppBar, AppShell, ListBox} from "@skeletonlabs/skeleton";
 
 	// Floating UI for Popups
-	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
-	import { storePopup } from '@skeletonlabs/skeleton';
+	import { computePosition, autoUpdate, flip, shift, offset, arrow } from "@floating-ui/dom";
+	import { storePopup } from "@skeletonlabs/skeleton";
 	import { Drawer, getDrawerStore } from "@skeletonlabs/skeleton";
-	import { initializeStores } from '@skeletonlabs/skeleton';
-	import MobileMenu from './MobileMenu.svelte'
+	import { initializeStores } from "@skeletonlabs/skeleton";
+	import MobileMenu from "./MobileMenu.svelte";
+	import PageFooter from "./PageFooter.svelte";
 
 	initializeStores();
 	const drawerStore = getDrawerStore();
@@ -81,5 +82,8 @@
 	<main class="bg-secondary-500 flex items-center justify-center">
 		<slot />
 	</main>
+	<div class="flex justify-center">
+		<div class="container max-w-[90rem]"><PageFooter /></div>
+	</div>
 </AppShell>
 
