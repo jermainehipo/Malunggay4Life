@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Avatar } from "@skeletonlabs/skeleton";
+	import { Avatar } from "@skeletonlabs/skeleton"
 	import { Paginator } from "@skeletonlabs/skeleton";
 	import PageFooter from "./PageFooter.svelte";
 
@@ -11,9 +11,9 @@
 </script>
 
 <main class="container max-w-[90rem]">
-	<div class="max-w-[90rem] flex flex-col lg:flex-row px-[4rem] lg:px-[7.62rem] pb-8 gap-[6rem]">
+	<div class="max-w-[90rem] flex flex-col lg:flex-row px-[2rem] md:px-[4rem] lg:px-[7.62rem] pb-8 gap-[6rem]">
 		<div class="flex-col max-w-[20rem] mt-[4rem] lg:mt-[9rem]">
-			<h1 class="tag">Nourishing Wellness, Naturally</h1>
+			<h1 class="tag h1-smaller md:h1">Nourishing Wellness, Naturally</h1>
 			<p class="my-4">Unlock the power of Moringa for a healthier you.</p>
 			<a href="/shop" class="btn variant-filled-primary">Get Started</a>
 		</div>

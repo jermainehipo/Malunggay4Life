@@ -15,7 +15,7 @@
             <i class="fa-solid fa-xmark fa-2xl"></i>
         </button>
         <div class="">
-            <img class="max-w-[20rem]" alt="Malunggay4Life" src={logo}>
+            <img class="w-[12rem]" alt="Malunggay4Life" src={logo}>
         </div>
     </div>
 

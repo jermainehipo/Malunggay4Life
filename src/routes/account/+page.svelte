@@ -1,27 +1,41 @@
 <script>
 	import { auth } from "$lib/firebase/firebase";
-	import { authHandlers } from "../../store/store";
+	import { authHandlers, authStore } from "../../store/store";
+  import { onMount } from "svelte";
+  // import { useNavigate } from "svelte-navigator";
+
+  // const navigate = useNavigate();
 
   function logout() {
-    console.log(auth.currentUser);
-    if (!auth.currentUser) {
-      console.log("returned logout")
-      return;
-    } 
+    // If not authenticated return;
+    if (!auth.currentUser) return; 
+
+    // Log out and redirect to landing page
     authHandlers.logout();
     console.log("Logged out");
     window.location.href = "/";
   }
+
+  onMount(() => {
+    return new Promise (() => {
+      auth.onAuthStateChanged((user) => {
+        console.log(user + " " + auth.currentUser);
+        if (!user) {
+          console.log("Not authenticated, redirecting");
+          window.location.href = "/sign-up";
+        }
+      });
+    });
+  });
 </script>
 
-<main>
-	<h1>Account</h1>
-
-	<!-- TEMP -->
-	<a href="/log-in">Log In</a>
-	<a href="/sign-up">Sign Up</a>
-
-	<button on:click={logout} class="btn bg-primary-500"> 
-    Sign out
-  </button>
+{#if !$authStore.loading}
+<main class="container max-w-[90rem] mt-[4.37rem] mb-[7.75rem]">
+	<div class="flex justify-center">
+		<h1>Your Account</h1>
+	</div>
+	<div class="flex flex-wrap justify-center gap-[4rem] lg:gap-[6rem] my-8">
+		<button on:click={logout} class="btn bg-primary-500"> Sign out </button>
+	</div>
 </main>
+{/if}

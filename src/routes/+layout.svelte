@@ -13,6 +13,7 @@
 	import MobileMenu from "./MobileMenu.svelte";
 	import PageFooter from "./PageFooter.svelte";
 	import { authStore } from "../store/store";
+	import { setContext } from "svelte";
 
 	initializeStores();
 	const drawerStore = getDrawerStore();
@@ -29,10 +30,11 @@
 		});
 	};
 
-	function accountRedirect() {
+	function changeAccountHREF(user: any) {
 		var account = document.getElementById("account_1");
+		console.log(account);
 		if (!account) return;
-		if (auth.currentUser) {
+		if (user) {
 			account.innerHTML = '<a href="/account"><i class="fa-solid fa-user fa-lg"></i></a>';
 		} else {
 			account.innerHTML = '<a href="/sign-up"><i class="fa-solid fa-user fa-lg"></i></a>';
@@ -41,9 +43,12 @@
 
 	onMount(() => {
 		console.log("Mounting");
+
+		// Have pages start from the top everytime
+		setContext("scroll", "top");
+
 		const unsubscribe = auth.onAuthStateChanged(async (user) => {
 			const currentPath = window.location.pathname;
-			accountRedirect();
 
 			// If not authenticated and attempted access on auth route, redirect
 			if (!user && authRoutes.includes(currentPath)) {
@@ -90,13 +95,13 @@
 		<AppBar background="bg-secondary-500">
 			<svelte:fragment slot="lead">
 				{#if screenSize <= 800}
-					<button name="Expand for Navigation Menu" on:click={openMobileMenu} class="ml-2 mr-6">
+					<button name="Expand for Navigation Menu" on:click={openMobileMenu} class="mr-3">
 						<!-- (August 6th, 2023) bars from FontAwesome. https://fontawesome.com/icons/bars?f=classic&s=solid -->
 						<i class="fa-solid fa-bars fa-xl" />
 					</button>
 				{/if}
 				<a href="/">
-					<img class="h-[3rem] md:h-[3.75rem]" alt="Malunggay 4 Life Logo" src="/Logos/M4L-transparent.png" />
+					<img class="max-h-[3.75rem]" alt="Malunggay 4 Life Logo" src="/Logos/M4L-transparent.png" />
 				</a>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
@@ -107,7 +112,7 @@
 						<a href="/our-story" class="font-bold place-self-center">Our Story</a>
 						<button id="account_1" class="w-8 h-12">
 							<!-- (January 12st, 2024) user from FontAwesome. https://fontawesome.com/icons/user?f=classic&s=solid -->
-							<a href="/sign-up">
+							<a href="/account">
 								<i class="fa-solid fa-user fa-lg"></i>
 							</a>
 						</button>
