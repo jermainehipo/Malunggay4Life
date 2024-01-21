@@ -1,4 +1,7 @@
 <script>
+	import { createEventDispatcher } from "svelte";
+
+	const dispatch = createEventDispatcher();
 	/**
 	 * @type {number}
 	 */
@@ -6,11 +9,15 @@
 
 	function increment() {
 		value += 1;
+		dispatch('update');
+		console.log("child");
 	}
 
 	function decrement() {
 		if (value > 0) {
 			value -= 1;
+			dispatch('update');
+			console.log("child");
 		}
 	}
 

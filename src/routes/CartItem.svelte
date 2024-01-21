@@ -1,53 +1,51 @@
 <script>
-// @ts-nocheck
+	// @ts-nocheck
+	import { createEventDispatcher } from "svelte";
 
-    import Counter from "./Counter.svelte";
+	import Counter from "./Counter.svelte";
 
-    export let id;
-    /**
+	export let id;
+	/**
 	 * @type {any}
 	 */
-     export let name;
-    /**
+	export let name;
+	/**
 	 * @type {any}
 	 */
-     export let description;
-    /**
+	export let description;
+	/**
 	 * @type {{ src: any; }}
 	 */
-     export let source;
-    /**
+	export let source;
+	/**
 	 * @type {{ src: any; }}
 	 */
-     export let alt;
-    /**
+	export let alt;
+	/**
 	 * @type {any}
 	 */
-     export let pricePerItem;
-    /**
+	export let pricePerItem;
+	/**
 	 * @type {number}
 	 */
-     export let numOfItem;
-    /**
+	export let numOfItem;
+	/**
 	 * @type {any}
 	 */
-     export let totalPrice;
-    /**
+	export let totalPrice;
+	/**
 	 * @type {boolean}
 	 */
-     export let inStock;
+	export let inStock;
 
-	function increment() {
-		numOfItem += 1;
+	const dispatch = createEventDispatcher();
+
+	function handleUpdate() {
+        console.log("parent");
+		dispatch('update', {totalPrice}, { bubble: true });
 	}
 
-	function decrement() {
-		if (numOfItem > 1) {
-			numOfItem -= 1;
-		}
-	}
-
-    $: totalPrice = (numOfItem * pricePerItem).toFixed(2);
+	$: totalPrice = (numOfItem * pricePerItem).toFixed(2);
 </script>
 
 <div class="flex gap-[0.56rem] pb-[3.12rem] border-b-2 border-gray-300">
@@ -66,7 +64,7 @@
 			</div>
 
 			<!-- Counter -->
-            <Counter bind:value={numOfItem}/>
+			<Counter bind:value={numOfItem} on:update={handleUpdate}/>
 
 			<p><b>${totalPrice}</b></p>
 		</div>

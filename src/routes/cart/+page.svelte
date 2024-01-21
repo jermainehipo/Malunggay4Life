@@ -1,7 +1,20 @@
 <script>
-// @ts-nocheck
-    import CartItem from "../CartItem.svelte";
+	// @ts-nocheck
+	import CartItem from "../CartItem.svelte";
 	export let data;
+    let id;
+    let newPrice;
+
+	$: totalItems = data.cartItems.length;
+
+	function calculateTotal() {
+        let subtotal = 0;
+		data.cartItems.forEach((cartItem) => {
+			subtotal += cartItem.totalPrice;
+		});
+        return subtotal.toFixed(2);
+	}
+    
 
 </script>
 
@@ -19,16 +32,17 @@
 				<p class="w-[6rem] text-center"><b>Price</b></p>
 			</div>
 			<!-- Cart Item -->
-			{#each data.cartItems as {id, name, description, source, alt, pricePerItem, numOfItem, totalPrice, inStock}}
-				<CartItem {id} {name} {description} {source} {alt} {pricePerItem} {numOfItem} {totalPrice} {inStock}/>
+			{#each data.cartItems as { id, name, description, source, alt, pricePerItem, numOfItem, totalPrice, inStock }}
+				<CartItem on:update={calculateTotal} {id} {name} {description} {source} {alt} {pricePerItem} {numOfItem} {totalPrice} {inStock} />
+                asfd
 			{/each}
 		</div>
 
 		<!-- Total -->
 		<div class="border-l-2 border-gray-500 p-[1.31rem]">
 			<div class="grid grid-cols-[18.75rem_minmax(3.75rem,_1fr)] border-b-2 border-gray-500 pb-[0.5rem]">
-				<p><b>Subtotal (Items 2)</b></p>
-				<p><b>$19.98</b></p>
+				<p><b>Subtotal (Items {totalItems})</b></p>
+				<p><b>${calculateTotal()}</b></p>
 				<p>Shipping</p>
 				<p>TBD</p>
 				<p>Tax</p>
@@ -36,7 +50,7 @@
 			</div>
 			<div class="grid grid-cols-[18.75rem_minmax(3.75rem,_1fr)] my-[0.5rem]">
 				<p>Estimated Total</p>
-				<p>$39.98</p>
+				<p>${calculateTotal()}</p>
 			</div>
 			<button class="btn bg-primary-500">Checkout</button>
 		</div>
