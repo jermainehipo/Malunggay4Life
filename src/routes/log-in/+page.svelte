@@ -2,12 +2,16 @@
 	import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 	import { enhance } from "$app/forms";
 	import { authHandlers } from "../../store/store";
+	import { auth } from "$lib/firebase/firebase";
+	import { onMount } from "svelte";
+	import { goto } from "$app/navigation";
 
 	// const auth = getAuth();
 	let email = "";
 	let password = "";
 	let error = false;
 	let authenticating = false;
+	let authenticated = false;
 
 	async function login() {
 		if (authenticating) return;
@@ -22,13 +26,22 @@
 		try {
 			authHandlers.login(email, password)
 			console.log("Signed In");
-			window.location.href = "/";
+			authenticating = false;
+			window.location.assign("/");
 		} catch (error) {
 			console.error("There was an error logging in: " + error);
 			authenticating = false;
 			error = true;
 		}
 	}
+
+	onMount(() => {
+		auth.onAuthStateChanged(function(user) {
+			if (user) {
+				authenticated = true;
+			}
+		});
+	});
 </script>
 
 <main class="container max-w-[90rem] mt-[4.37rem] mb-[4rem]">

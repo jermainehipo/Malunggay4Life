@@ -3,7 +3,7 @@
 	import { auth, db } from "../lib/firebase/firebase";
 	import { getDoc, doc, setDoc, type DocumentData } from "firebase/firestore";
 	import "../app.postcss";
-	import { AppBar, AppShell, ListBox} from "@skeletonlabs/skeleton";
+	import { AppBar, AppShell, ListBox } from "@skeletonlabs/skeleton";
 
 	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from "@floating-ui/dom";
@@ -18,21 +18,32 @@
 	const drawerStore = getDrawerStore();
 	const authRoutes = ["/dashboard"];
 
-	let screenSize: number;		// For mobile menu display
+	let screenSize: number; // For mobile menu display
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
-		// Mobile Menu Drawer Store Config
-		const openMobileMenu = () => {
+	// Mobile Menu Drawer Store Config
+	const openMobileMenu = () => {
 		drawerStore.open({
-			id: 'MobileMenu',
-			position: 'right'
+			id: "MobileMenu",
+			position: "right",
 		});
 	};
+
+	function accountRedirect() {
+		var account = document.getElementById("account_1");
+		if (!account) return;
+		if (auth.currentUser) {
+			account.innerHTML = '<a href="/account"><i class="fa-solid fa-user fa-lg"></i></a>';
+		} else {
+			account.innerHTML = '<a href="/sign-up"><i class="fa-solid fa-user fa-lg"></i></a>';
+		}
+	}
 
 	onMount(() => {
 		console.log("Mounting");
 		const unsubscribe = auth.onAuthStateChanged(async (user) => {
 			const currentPath = window.location.pathname;
+			accountRedirect();
 
 			// If not authenticated and attempted access on auth route, redirect
 			if (!user && authRoutes.includes(currentPath)) {
@@ -41,19 +52,19 @@
 			}
 
 			if (!user) return;
-			
+
 			let dataToSetToStore: DocumentData;
-			const docRef = doc(db, "users", user.uid)
+			const docRef = doc(db, "users", user.uid);
 			const docSnap = await getDoc(docRef);
 			if (!docSnap.exists()) {
 				const userRef = doc(db, "user", user.uid);
 				dataToSetToStore = {
-					email: user.email, 
-					todos: []
-				}
+					email: user.email,
+					todos: [],
+				};
 				await setDoc(userRef, dataToSetToStore, { merge: true });
 			} else {
-				const userData = docSnap.data()
+				const userData = docSnap.data();
 				dataToSetToStore = userData;
 			}
 			authStore.update((curr) => {
@@ -64,15 +75,14 @@
 					loading: false,
 				};
 			});
-		})
-	})
+		});
+	});
 </script>
 
-
-<svelte:window bind:innerWidth={screenSize}/>
+<svelte:window bind:innerWidth={screenSize} />
 <Drawer>
-	{#if $drawerStore.id === 'MobileMenu'}
-		<MobileMenu/>
+	{#if $drawerStore.id === "MobileMenu"}
+		<MobileMenu />
 	{/if}
 </Drawer>
 <AppShell>
@@ -86,18 +96,18 @@
 					</button>
 				{/if}
 				<a href="/">
-					<img class="h-[3rem] md:h-[3.75rem]" alt="Malunggay 4 Life Logo" src="/Logos/M4L-transparent.png">
+					<img class="h-[3rem] md:h-[3.75rem]" alt="Malunggay 4 Life Logo" src="/Logos/M4L-transparent.png" />
 				</a>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				{#if screenSize > 800}
-					<div class="flex gap-[2.5rem] content-center">				
+					<div class="flex gap-[2.5rem] content-center">
 						<a href="/shop" class="font-bold place-self-center">Shop</a>
 						<a href="/contact-us" class="font-bold place-self-center">Contact Us</a>
 						<a href="/our-story" class="font-bold place-self-center">Our Story</a>
-						<button class="w-8 h-12">
+						<button id="account_1" class="w-8 h-12">
 							<!-- (January 12st, 2024) user from FontAwesome. https://fontawesome.com/icons/user?f=classic&s=solid -->
-							<a href="/account">
+							<a href="/sign-up">
 								<i class="fa-solid fa-user fa-lg"></i>
 							</a>
 						</button>
@@ -107,7 +117,6 @@
 						</a>
 					</div>
 				{:else}
-
 					<button class="w-8 h-12">
 						<!-- (August 6th, 2023) user from FontAwesome. https://fontawesome.com/icons/user?f=classic&s=regular -->
 						<a href="/account">
@@ -129,4 +138,3 @@
 		<div class="container max-w-[90rem]"><PageFooter /></div>
 	</div>
 </AppShell>
-

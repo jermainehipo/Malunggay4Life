@@ -1,6 +1,6 @@
 <script>
     import { getDrawerStore } from "@skeletonlabs/skeleton";
-
+    import logo from "../lib/Logos/M4L-transparent.png";
     const drawerStore = getDrawerStore();
 
     function closeDrawer() {
@@ -15,7 +15,7 @@
             <i class="fa-solid fa-xmark fa-2xl"></i>
         </button>
         <div class="">
-            <img class="max-w-[20rem]" alt="Malunggay4Life" src="Logos\M4L-transparent.png">
+            <img class="max-w-[20rem]" alt="Malunggay4Life" src={logo}>
         </div>
     </div>
 

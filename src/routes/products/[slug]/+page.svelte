@@ -10,8 +10,6 @@
 
     $: price = (numOfProduct * data.pricePerItem).toFixed(2);
     
-
-    
 </script>
 
 <main class="flex max-w-[90rem] px-[6.75rem] gap-[7.75rem] my-8 mt-[3.31rem] mb-[7.19rem]">
