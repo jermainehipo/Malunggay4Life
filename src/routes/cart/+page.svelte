@@ -19,8 +19,8 @@
 </script>
 
 <main class="container max-w-[90rem] mt-[4.37rem] px-[7.75rem]">
-	<div class="flex justify-center">
-		<h1>Your Shopping Cart</h1>
+	<div>
+		<h1 class="text-[3rem] leading-[3.7rem] sm:text-[64px] sm:leading-[80px] text-center">Your Shopping Cart</h1>
 	</div>
 
 	<div class="flex mt-[3.31rem] mb-[7.19rem]">

@@ -4,8 +4,8 @@
 <main class="container max-w-[90rem] mt-[4.37rem] mb-[4rem]">
     <div class="flex justify-center ">
     </div>
-    <div class="bg-primary-500 max-w-[90rem] min-h-[46.75rem] px-[4rem] lg:px-[7.62rem] py-16">
-        <h1>Our Story</h1>
+    <div class="bg-primary-500 max-w-[90rem] min-h-[46.75rem] px-[2rem] md:px-[4rem] lg:px-[7.62rem] py-16">
+        <h1 class="text-[3rem] leading-[3.7rem] sm:text-[64px] sm:leading-[80px]">Our Story</h1>
         <div class="lg:flex gap-[2.94rem]">
             <div class="py-[5.56rem] max-w-[41.3125rem]">
                 <p>

@@ -1,26 +1,41 @@
 <script lang="ts">
-	import { Avatar } from "@skeletonlabs/skeleton"
-	import { Paginator } from "@skeletonlabs/skeleton";
-	import PageFooter from "./PageFooter.svelte";
-
-	import { error } from "@sveltejs/kit";
+	import { Avatar } from "@skeletonlabs/skeleton";
 
 	export let data;
 
+	let screenSize: number;
+	let elemReviews: HTMLDivElement;
 
+	/** Move review cards left*/
+	function multiColumnLeft(): void {
+		let x = elemReviews.scrollWidth;
+		if (elemReviews.scrollLeft !== 0) x = elemReviews.scrollLeft - elemReviews.clientWidth;
+		elemReviews.scroll(x, 0);
+	}
+
+	/** Move review cards right*/
+	function multiColumnRight(): void {
+		let x = 0;
+		// -1 is used because different browsers use different methods to round scrollWidth pixels.
+		if (elemReviews.scrollLeft < elemReviews.scrollWidth - elemReviews.clientWidth - 1) x = elemReviews.scrollLeft + elemReviews.clientWidth;
+		elemReviews.scroll(x, 0);
+	}
 </script>
 
+<svelte:window bind:innerWidth={screenSize} />
 <main class="container max-w-[90rem]">
 	<div class="max-w-[90rem] flex flex-col lg:flex-row px-[2rem] md:px-[4rem] lg:px-[7.62rem] pb-8 gap-[6rem]">
 		<div class="flex-col max-w-[20rem] mt-[4rem] lg:mt-[9rem]">
-			<h1 class="tag h1-smaller md:h1">Nourishing Wellness, Naturally</h1>
+			<h1 class="tag text-[3rem] leading-[3.7rem] sm:text-[64px] sm:leading-[80px]">
+				Nourishing Wellness, Naturally
+			</h1>
 			<p class="my-4">Unlock the power of Moringa for a healthier you.</p>
 			<a href="/shop" class="btn variant-filled-primary">Get Started</a>
 		</div>
 		<img alt="Leaves" src="Images/leaves.jpg" class="max-w-[48rem] max-h-[45rem] rounded-2xl object-cover" />
 	</div>
 
-	<div class="bg-primary-500 max-w-[90rem] min-h-[46.75rem] px-[4rem] lg:px-[7.62rem] py-16">
+	<div class="bg-primary-500 max-w-[90rem] px-[2rem] md:px-[4rem] lg:px-[7.62rem] min-h-[46.75rem] py-16">
 		<h2>Benefits</h2>
 		<h3>What makes our Moringa Leaves so amazing.</h3>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-20 pt-8">
@@ -109,7 +124,7 @@
 		</div>
 	</div>
 
-	<div class="px-[4rem] max-w-[90rem] lg:px-[7.62rem] py-16">
+	<div class="max-w-[90rem] px-[2rem] md:px-[4rem] lg:px-[7.62rem] py-16">
 		<h2>Our Products</h2>
 		<div class="flex flex-wrap justify-center gap-[4rem] lg:gap-[6rem] my-8">
 			<!-- Product Item -->
@@ -133,7 +148,7 @@
 		</div>
 	</div>
 
-	<div class="bg-primary-500 max-w-[90rem] min-h-[46.75rem] px-[4rem] lg:px-[7.62rem] py-16">
+	<div class="bg-primary-500 max-w-[90rem] px-[2rem] md:px-[4rem] min-h-[46.75rem]lg:px-[7.62rem] py-16">
 		<h2>Our Story</h2>
 		<div class="lg:flex gap-[2.94rem]">
 			<div class="py-[5.56rem] max-w-[41.3125rem]">
@@ -149,73 +164,52 @@
 		</div>
 	</div>
 
-	<div class="w-[90rem] px-[4rem] lg:px-[7.62rem] py-16 flex flex-col gap-[4.31rem]">
+	<div class="max-w-[90rem] px-[2rem] md:px-[4rem] lg:px-[7.62rem] py-16 flex flex-col gap-[4.31rem]">
 		<div class="flex flex-col gap-[1rem]">
 			<h2>Customer Reviews</h2>
 			<h3>Hear it from our customers just like you.</h3>
 		</div>
-		<div class="flex gap-[3.12rem]">
-			<!-- Review Card -->
-			<div class="bg-tertiary-500 flex flex-col gap-[1.31rem] w-[25rem] h-[14.375rem] px-[2.5rem] py-[2.5rem] rounded-xl">
-				<div class="flex gap-[4rem] content-center">
-					<div>
-						<Avatar src="" width="w-[2.5rem]" rounded="rounded-full" />
+
+		<div class="grid grid-cols-[auto_1fr_auto] gap-4 items-center">
+			{#if screenSize > 600}
+				<!-- Left Button -->
+				<button type="button" class="btn-icon variant-filled bg-primary-500 w-[2.5rem] h-[2.5rem]" on:click={multiColumnLeft}>
+					<i class="fa-solid fa-arrow-left" />
+				</button>
+			{/if}
+
+			<!-- Carousel -->
+			<div bind:this={elemReviews} class="flex gap-[3.12rem] snap-x snap-mandatory scroll-smooth flex overflow-x-auto">
+				<!-- Review Card -->
+				{#each data.reviewCards as reviewCard}
+					<div class="bg-tertiary-500 flex flex-col gap-[1.31rem] w-[25rem] h-[14.375rem] px-[1.75rem] py-[1.75rem] rounded-xl">
+						<div class="flex gap-[2rem] content-center">
+							<div>
+								<Avatar src={reviewCard.src} width="w-[2.5rem]" rounded="rounded-full" />
+							</div>
+							<p class="text-center w-[8rem]">
+								<b>
+									{reviewCard.name}
+									<br />
+									{reviewCard.location}
+								</b>
+							</p>
+							<p class="place-self-center">
+								<b>{reviewCard.rating}</b>
+							</p>
+						</div>
+						<div>
+							<p>{reviewCard.description}</p>
+						</div>
 					</div>
-					<p class="text-center">
-						<b>
-							John Doe
-							<br />
-							Calgary, Alberta
-						</b>
-					</p>
-					<p class="place-self-center">
-						<b>4.5</b>
-					</p>
-				</div>
-				<div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
+				{/each}
 			</div>
-			<div class="bg-tertiary-500 flex flex-col gap-[1.31rem] w-[25rem] h-[14.375rem] px-[2.5rem] py-[2.5rem] rounded-xl">
-				<div class="flex gap-[4rem] content-center">
-					<div>
-						<Avatar src="" width="w-[2.5rem]" rounded="rounded-full" />
-					</div>
-					<p class="text-center">
-						<b>
-							John Doe
-							<br />
-							Calgary, Alberta
-						</b>
-					</p>
-					<p class="place-self-center">
-						<b>4.5</b>
-					</p>
-				</div>
-				<div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-			</div>
-			<div class="bg-tertiary-500 flex flex-col gap-[1.31rem] w-[25rem] h-[14.375rem] px-[2.5rem] py-[2.5rem] rounded-xl">
-				<div class="flex gap-[4rem] content-center">
-					<div>
-						<Avatar src="" width="w-[2.5rem]" rounded="rounded-full" />
-					</div>
-					<p class="text-center">
-						<b>
-							John Doe
-							<br />
-							Calgary, Alberta
-						</b>
-					</p>
-					<p class="place-self-center">
-						<b>4.5</b>
-					</p>
-				</div>
-				<div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-			</div>
+			{#if screenSize > 600}
+				<!-- Right Button -->
+				<button type="button" class="btn-icon bg-primary-500 w-[2.5rem] h-[2.5rem]" on:click={multiColumnRight}>
+					<i class="fa-solid fa-arrow-right" />
+				</button>
+			{/if}
 		</div>
 	</div>
 </main>

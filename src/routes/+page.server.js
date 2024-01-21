@@ -45,7 +45,74 @@ export const load = async ({ params }) => {
         },
     ]
 
+    const reviewCards = [
+        {
+            name: "Jane Doe",
+            initials: "JD",
+            location: "Calgary, Alberta",
+            rating: 5,
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            src: "",
+        },
+        {
+            name: "John Doe",
+            initials: "JD",
+            location: "Calgary, Alberta",
+            rating: 5,
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            src: "",
+        },
+        {
+            name: "Jane Doe",
+            initials: "JD",
+            location: "Calgary, Alberta",
+            rating: 5,
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            src: "",
+        },
+        {
+            name: "John Doe",
+            initials: "JD",
+            location: "Calgary, Alberta",
+            rating: 5,
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            src: "",
+        },
+        {
+            name: "Jane Doe",
+            initials: "JD",
+            location: "Calgary, Alberta",
+            rating: 5,
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            src: "",
+        },
+        {
+            name: "John Doe",
+            initials: "JD",
+            location: "Calgary, Alberta",
+            rating: 5,
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            src: "",
+        },
+        {
+            name: "Jane Doe",
+            initials: "JD",
+            location: "Calgary, Alberta",
+            rating: 5,
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            src: "",
+        },
+        {
+            name: "John Doe",
+            initials: "JD",
+            location: "Calgary, Alberta",
+            rating: 5,
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            src: "",
+        },
+    ]
+
     return {
-        items,
+        items, reviewCards,
     };
 };

@@ -34,10 +34,10 @@
 </script>
 
 <main class="container max-w-[90rem] mt-[4.37rem] mb-[4rem]">
-	<div class="flex justify-center">
-		<h1>Sign Up</h1>
+	<div>
+		<h1 class="text-[3rem] leading-[3.7rem] sm:text-[64px] sm:leading-[80px] text-center">Sign Up</h1>
 	</div>
-	<div class="flex justify-center gap-[4rem] mt-[3.31rem] mb-[7.19rem]">
+	<div class="flex justify-center gap-[4rem] px-[2rem] md:px-[4rem] mt-[3.31rem] mb-[7.19rem]">
 		<form class="flex flex-col gap-[1.25rem]">
 			<div class="flex gap-[1.25rem]">
 				<input bind:value={firstName} type="text" placeholder="First name" class="input" />
