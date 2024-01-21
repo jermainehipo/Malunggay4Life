@@ -15,6 +15,7 @@
 					<p>{item.name}</p>
 				</a>
 				<div class="flex">
+					<!-- (January 20, 2024) star from FontAwesome. https://fontawesome.com/icons/star?f=classic&s=solid -->
 					<i class="fa-solid fa-star" style="color: #ffd500;"></i>
 					<i class="fa-solid fa-star" style="color: #ffd500;"></i>
 					<i class="fa-solid fa-star" style="color: #ffd500;"></i>

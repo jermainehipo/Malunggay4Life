@@ -19,7 +19,6 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
 let firebaseApp;
 if (!getApps().length) {
     firebaseApp = initializeApp(firebaseConfig);
@@ -28,7 +27,5 @@ if (!getApps().length) {
     deleteApp(firebaseApp);
     firebaseApp = initializeApp(firebaseConfig);
 }
-const analytics = getAnalytics(app);
-
 export const db = getFirestore(firebaseApp);
 export const auth = getAuth(firebaseApp);

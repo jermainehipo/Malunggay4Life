@@ -1,19 +1,34 @@
 <script>
 	import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 	import { enhance } from "$app/forms";
+	import { authHandlers } from "../../store/store";
 
 	// const auth = getAuth();
 	let email = "";
 	let password = "";
+	let error = false;
+	let authenticating = false;
 
-	// async function login() {
-	// 	try {
-	// 		await signInWithEmailAndPassword(auth, email, password);
-	// 		console.log("User logged in successfully!");
-	// 	} catch (error) {
-	// 		console.error("Error logging in:");
-	// 	}
-	// }
+	async function login() {
+		if (authenticating) return;
+
+		if (!email || !password) {
+			error = true;
+			return;
+		}
+
+		authenticating = true
+
+		try {
+			authHandlers.login(email, password)
+			console.log("Signed In");
+			window.location.href = "/";
+		} catch (error) {
+			console.error("There was an error logging in: " + error);
+			authenticating = false;
+			error = true;
+		}
+	}
 </script>
 
 <main class="container max-w-[90rem] mt-[4.37rem] mb-[4rem]">
@@ -25,7 +40,14 @@
 			<input bind:value={email} type="email" placeholder="Email" class="input" />
 			<input bind:value={password} type="password" placeholder="Password" class="input" />
 			<div class="flex">
-				<input type="submit" value="Sign In" class="btn bg-primary-500 w-[14rem]" />
+				<button on:click={login} class="btn bg-primary-500 w-[14rem]" >
+					{#if authenticating}
+						<!-- (January 20, 2024) spinner from FontAwesome. https://fontawesome.com/icons/spinner?f=classic&s=solid -->
+						<i class="fa-solid fa-spinner spin"></i>					
+					{:else}
+						Sign In
+					{/if}
+				</button>
 				<div class="container grid items-center justify-items-center">
 					<a href="/log-in" class="hover:font-semibold underline">Forgot Password?</a>
 				</div>

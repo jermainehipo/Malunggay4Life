@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { onMount } from "svelte";
+	import { auth, db } from "../lib/firebase/firebase";
+	import { getDoc, doc, setDoc, type DocumentData } from "firebase/firestore";
 	import "../app.postcss";
 	import { AppBar, AppShell, ListBox} from "@skeletonlabs/skeleton";
 
@@ -9,9 +12,11 @@
 	import { initializeStores } from "@skeletonlabs/skeleton";
 	import MobileMenu from "./MobileMenu.svelte";
 	import PageFooter from "./PageFooter.svelte";
+	import { authStore } from "../store/store";
 
 	initializeStores();
 	const drawerStore = getDrawerStore();
+	const authRoutes = ["/dashboard"];
 
 	let screenSize: number;		// For mobile menu display
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
@@ -23,6 +28,44 @@
 			position: 'right'
 		});
 	};
+
+	onMount(() => {
+		console.log("Mounting");
+		const unsubscribe = auth.onAuthStateChanged(async (user) => {
+			const currentPath = window.location.pathname;
+
+			// If not authenticated and attempted access on auth route, redirect
+			if (!user && authRoutes.includes(currentPath)) {
+				window.location.href = "/";
+				return;
+			}
+
+			if (!user) return;
+			
+			let dataToSetToStore: DocumentData;
+			const docRef = doc(db, "users", user.uid)
+			const docSnap = await getDoc(docRef);
+			if (!docSnap.exists()) {
+				const userRef = doc(db, "user", user.uid);
+				dataToSetToStore = {
+					email: user.email, 
+					todos: []
+				}
+				await setDoc(userRef, dataToSetToStore, { merge: true });
+			} else {
+				const userData = docSnap.data()
+				dataToSetToStore = userData;
+			}
+			authStore.update((curr) => {
+				return {
+					...curr,
+					user,
+					data: dataToSetToStore,
+					loading: false,
+				};
+			});
+		})
+	})
 </script>
 
 
