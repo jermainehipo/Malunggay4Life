@@ -3,7 +3,7 @@
 	import { auth, db } from "$lib/firebase/firebase";
 	import { getDoc, doc, setDoc, type DocumentData } from "firebase/firestore";
 	import "../app.postcss";
-	import { AppBar, AppShell, ListBox } from "@skeletonlabs/skeleton";
+	import { AppBar, AppShell } from "@skeletonlabs/skeleton";
 
 	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from "@floating-ui/dom";

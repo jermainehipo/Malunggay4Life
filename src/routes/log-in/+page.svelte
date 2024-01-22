@@ -1,6 +1,5 @@
 <script>
 	import { authHandlers } from "../../store/store";
-	import { goto } from "$app/navigation";
 
 	// const auth = getAuth();
 	let email = "";
