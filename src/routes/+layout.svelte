@@ -12,6 +12,7 @@
 	import { initializeStores } from "@skeletonlabs/skeleton";
 	import MobileMenu from "$lib/drawers/MobileMenu.svelte";
 	import PageFooter from "$lib/components/PageFooter.svelte";
+	import logo from "$lib/Logos/M4L-transparent.png";
 	import { authStore } from "../store/store";
 	import { setContext } from "svelte";
 
@@ -103,7 +104,7 @@
 					</button>
 				{/if}
 				<a href="/">
-					<img class="max-h-[3.75rem]" alt="Malunggay 4 Life Logo" src="/Logos/M4L-transparent.png" />
+					<img class="max-h-[3.75rem]" alt="Malunggay 4 Life Logo" src="{logo}" />
 				</a>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">

@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { Avatar } from "@skeletonlabs/skeleton";
+	import leaves from "$lib/Images/leaves.jpg";
+	import story from "$lib/Images/story.jpg";
 
 	export let data;
 
@@ -32,7 +34,7 @@
 			<p class="my-4">Unlock the power of Moringa for a healthier you.</p>
 			<a href="/shop" class="btn variant-filled-primary">Get Started</a>
 		</div>
-		<img alt="Leaves" src="$lib/images/leaves.jpg" class="max-w-[48rem] max-h-[45rem] rounded-2xl object-cover" />
+		<img alt="Leaves" src="{leaves}" class="max-w-[48rem] max-h-[45rem] rounded-2xl object-cover" />
 	</div>
 	<div class="bg-primary-500 max-w-[90rem] px-[2rem] md:px-[4rem] lg:px-[7.62rem] min-h-[46.75rem] py-16">
 		<h2>Benefits</h2>
@@ -159,7 +161,7 @@
 				<br />
 				<p>Through thorough research, I discovered the nutritional richness and benefits of Moringa plants (Moringa Oleifera)🌿. Recognized as a miracle tree, superfood, and a tree of life, these findings underscore the significance of incorporating Moringa into our daily lives.</p>
 			</div>
-			<img alt="Our Story" src="Images/story.jpg" class="object-cover w-[35.375rem] h-[33rem]" />
+			<img alt="Our Story" src="{story}" class="object-cover w-[35.375rem] h-[33rem]" />
 		</div>
 	</div>
 

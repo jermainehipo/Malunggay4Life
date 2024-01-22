@@ -1,5 +1,5 @@
 import { error } from "@sveltejs/kit";
-import bottle from "../../../lib/Images/bottle.png";
+import bottle from "$lib/Images/bottle.png";
 
 /** @type {import('./$types').PageLoad} */ 
 export function load({ params }) {

@@ -1,6 +1,6 @@
 <script>
     import { getDrawerStore } from "@skeletonlabs/skeleton";
-    import logo from "../logos/M4L-transparent.png";
+    import logo from "$lib/Logos/M4L-transparent.png"
     const drawerStore = getDrawerStore();
 
     function closeDrawer() {
