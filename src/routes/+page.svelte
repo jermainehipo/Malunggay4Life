@@ -131,8 +131,8 @@
 			<!-- Product Item -->
 			{#each data.products as product}
 				<div class="w-fit">
-					<a href="/products/{product.slug}">
-						<img src={product.image.src} alt={product.image.alt} class="w-[12.5rem] h-[12.5rem] border" />
+					<a href="/products/{product.slug.url}">
+						<img src={product.src} alt={product.alt} class="w-[12.5rem] h-[12.5rem] border" />
 						<p>{product.name}</p>
 					</a>
 					<div class="flex">
@@ -142,7 +142,7 @@
 						<i class="fa-solid fa-star" style="color: #ffd500;"></i>
 						<i class="fa-solid fa-star" style="color: #ffd500;"></i>
 					</div>
-					<p><b>${product.pricePerItem}</b></p>
+					<p><b>${product.price}</b></p>
 					<button class="btn bg-primary-500 w-full">Add to Cart</button>
 				</div>
 			{/each}

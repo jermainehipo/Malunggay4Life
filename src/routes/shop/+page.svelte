@@ -1,6 +1,9 @@
 <script>
 	import ProductCard from "$lib/components/ProductCard.svelte";
-	export let data;
+	import { get } from "svelte/store";
+	import { productItems } from "../../products";
+	
+	const products = get(productItems);
 
 </script>
 
@@ -10,8 +13,8 @@
 	</div>
 	<div class="flex flex-wrap justify-center gap-[4rem] lg:gap-[6rem] my-8">
 		<!-- Product Item -->
-		{#each data.products as {id, slug, src, alt, name, price}}
-			<ProductCard id={id} slug={slug} src={src} alt={alt} name={name} price={price}/>
+		{#each products as product}
+			<ProductCard product={product}/>
 		{/each}
 	</div>
 </main>

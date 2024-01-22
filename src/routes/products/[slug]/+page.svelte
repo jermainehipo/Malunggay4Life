@@ -1,11 +1,12 @@
-<script>
+<script lang="ts">
 	import Counter from "$lib/components/Counter.svelte";
+
 	export let data;
 
-    let numOfProduct = 1;
-    let price = 1;
+	let quantity = 1;
+	let price = "";
 
-    $: price = (numOfProduct * data.pricePerItem).toFixed(2);
+	$: price = (quantity * data.price).toFixed(2);
 
 </script>
 
@@ -14,15 +15,15 @@
 		<div class="flex flex-col gap-[2.81rem]">
 			<div>
 				<h2>{data.name}</h2>
-				<h3>{data.subtitle}</h3>
+				<h3>{data.slug?.subtitle}</h3>
 			</div>
-			<p>{data.description_1}</p>
-			<p>{data.description_2}</p>
+			<p>{data.slug?.slugDesc1}</p>
+			<p>{data.slug?.slugDesc2}</p>
 		</div>
-		<Counter id={data.id} bind:value={numOfProduct}/>
+		<Counter id={data.id} bind:value={quantity} />
 		<button class="btn bg-primary-500 w-fit">
 			Add to Cart <span class="w-[1.25rem]" />${price}
 		</button>
 	</div>
-	<img src={data.image.src} alt={data.image.alt} class="w-full object-cover"/>
+	<img src={data.src} alt={data.alt} class="w-full object-cover" />
 </main>

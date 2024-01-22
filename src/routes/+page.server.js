@@ -1,49 +1,9 @@
-import bottle from "$lib/Images/bottle.png";
-export const load = async ({ params }) => {
+import { get } from "svelte/store";
+import { productItems } from "../products";
 
-    //Set page data
-    const products = [
-        {
-            id: 1,
-            name: "Moringa Capsules",
-            image: {
-                src: bottle,
-                alt: "Moringa Capsule Bottle"
-            },
-            pricePerItem: 19.99,
-            slug: "moringa-capsules"
-        },
-        {
-            id: 2,
-            name: "Moringa Capsules",
-            image: {
-                src: bottle,
-                alt: "Moringa Capsule Bottle"
-            },
-            pricePerItem: 19.99,
-            slug: "moringa-capsules"
-        },
-        {
-            id: 3,
-            name: "Moringa Capsules",
-            image: {
-                src: bottle,
-                alt: "Moringa Capsule Bottle"
-            },
-            pricePerItem: 19.99,
-            slug: "moringa-capsules"
-        },
-        {
-            id: 4,
-            name: "Moringa Capsules",
-            image: {
-                src: bottle,
-                alt: "Moringa Capsule Bottle"
-            },
-            pricePerItem: 19.99,
-            slug: "moringa-capsules"
-        },
-    ]
+export const load = async ({ params }) => {
+	
+	const products = get(productItems);
 
     const reviewCards = [
         {

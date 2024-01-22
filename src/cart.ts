@@ -4,7 +4,7 @@ import { writable, get } from "svelte/store";
 export const cartItems = writable<CartItem[]>([]);
 
 // Add to cart
-export const addToCart = (id: string, quantity: number) => {
+export const addToCart = (id: number, quantity: number) => {
     let items = get(cartItems);
     let itemPosition = items.findIndex(
         (item) => { return item.id == id}
@@ -30,7 +30,7 @@ export const addToCart = (id: string, quantity: number) => {
 }
 
 // Remove from cart
-export const removeFromCart = (id: string, quantity: number) => {
+export const removeFromCart = (id: number, quantity: number) => {
     let items = get(cartItems);
     let itemPosition = items.findIndex(
         (item) => { return item.id == id}

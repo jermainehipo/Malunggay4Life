@@ -4,19 +4,15 @@
 
 	export let id: any;
 	export let value: any;
-	export let name: any;
-	export let price: any;
-
-	export let product : Product = {id: id, name: name, price: price};
 
     let cart = get(cartItems); // Get Cart Items
-    let cartItemIndex = cart.findIndex((item) => {return item.id === product.id })  // Find index that cart item is at
+    let cartItemIndex = cart.findIndex((item) => {return item.id === id })  // Find index that cart item is at
     let cartProduct = cart[cartItemIndex];  // Store product
 
     // Listen to changes in cartItems and update
     cartItems.subscribe((newCartValue) => {
         cart = newCartValue;
-        cartItemIndex = cart.findIndex((item) => {return item.id === product.id })
+        cartItemIndex = cart.findIndex((item) => {return item.id === id })
         cartProduct = cart[cartItemIndex];
         console.log(cart);
     })

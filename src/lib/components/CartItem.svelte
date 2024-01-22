@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { createEventDispatcher } from "svelte";
-	import { removeFromCart} from "../../cart";
+	import { removeFromCart } from "../../cart";
 
 	import Counter from "./Counter.svelte";
 
