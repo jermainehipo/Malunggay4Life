@@ -175,6 +175,7 @@
 			{#if screenSize > 600}
 				<!-- Left Button -->
 				<button type="button" class="btn-icon variant-filled bg-primary-500 w-[2.5rem] h-[2.5rem]" on:click={multiColumnLeft}>
+					<!-- (January 21, 2024) arrow-left from FontAwesome. https://fontawesome.com/icons/arrow-left?f=classic&s=solid -->
 					<i class="fa-solid fa-arrow-left" />
 				</button>
 			{/if}
@@ -208,6 +209,7 @@
 			{#if screenSize > 600}
 				<!-- Right Button -->
 				<button type="button" class="btn-icon bg-primary-500 w-[2.5rem] h-[2.5rem]" on:click={multiColumnRight}>
+					<!-- (January 21, 2024) arrow-right from FontAwesome. https://fontawesome.com/icons/arrow-right?f=classic&s=solid -->
 					<i class="fa-solid fa-arrow-right" />
 				</button>
 			{/if}

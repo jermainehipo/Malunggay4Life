@@ -22,7 +22,7 @@
 				console.log(user + " " + auth.currentUser);
 				if (!user) {
 					console.log("Not authenticated, redirecting");
-					window.location.href = "/sign-up";
+					window.location.href = "/log-in";
 				}
 			});
 		});

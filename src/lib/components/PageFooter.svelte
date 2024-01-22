@@ -1,5 +1,5 @@
 <script>
-    import logo from "$lib/Logos/M4L-transparent.png";
+    import logo from "$lib/Logos/M4L-white-transparent.png";
 </script>
 
 <div class="bg-primary-500 max-w-[90rem] px-[2rem] md:px-[4rem] lg:px-[7.62rem] pt-[5rem] pb-[3.7rem] flex flex-col gap-[7rem]">

@@ -15,13 +15,19 @@
 	import logo from "$lib/Logos/M4L-transparent.png";
 	import { authStore } from "../store/store";
 	import { setContext } from "svelte";
+	import { page } from "$app/stores";
 
 	initializeStores();
 	const drawerStore = getDrawerStore();
-	const authRoutes = ["/dashboard"];
+	const authRoutes = ["/account"];
+	const scrollExceptions = ["/account", "/log-in", "/sign-up"];
 
+	let currentPage;
 	let screenSize: number; // For mobile menu display
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+
+	// Subscribe to changes in page
+	// $: currentPage = $page.path;
 
 	// Mobile Menu Drawer Store Config
 	const openMobileMenu = () => {
@@ -31,31 +37,20 @@
 		});
 	};
 
-	function changeAccountHREF(user: any) {
-		var account = document.getElementById("account_1");
-		console.log(account);
-		if (!account) return;
-		if (user) {
-			account.innerHTML = '<a href="/account"><i class="fa-solid fa-user fa-lg"></i></a>';
-		} else {
-			account.innerHTML = '<a href="/sign-up"><i class="fa-solid fa-user fa-lg"></i></a>';
-		}
-	}
-
-
 	onMount(() => {
-		window.scrollTo(0, 0);
 		console.log("Mounting");
+		const currentPath = window.location.pathname;
 
-		// Have pages start from the top everytime
-		setContext("scroll", "top");
+		// Have pages start from the top everytime besides for account page
+		if (!(scrollExceptions.includes(currentPath))) {
+			setContext("scroll", "top");
+		}
 
 		const unsubscribe = auth.onAuthStateChanged(async (user) => {
-			const currentPath = window.location.pathname;
 
 			// If not authenticated and attempted access on auth route, redirect
 			if (!user && authRoutes.includes(currentPath)) {
-				window.location.href = "/";
+				window.location.href = "/log-in";
 				return;
 			}
 

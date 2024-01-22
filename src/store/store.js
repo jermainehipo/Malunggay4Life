@@ -13,7 +13,12 @@ export const authHandlers = {
         await createUserWithEmailAndPassword(auth, email, password);
     },
     login: async (/** @type {string} */ email, /** @type {string} */ password) => {
-        await signInWithEmailAndPassword(auth, email, password);
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            return true;
+        } catch (error) {
+            return false;
+        }
     },
     logout: async () => {
         await signOut(auth);
