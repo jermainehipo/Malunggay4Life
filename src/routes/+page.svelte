@@ -32,9 +32,8 @@
 			<p class="my-4">Unlock the power of Moringa for a healthier you.</p>
 			<a href="/shop" class="btn variant-filled-primary">Get Started</a>
 		</div>
-		<img alt="Leaves" src="Images/leaves.jpg" class="max-w-[48rem] max-h-[45rem] rounded-2xl object-cover" />
+		<img alt="Leaves" src="$lib/images/leaves.jpg" class="max-w-[48rem] max-h-[45rem] rounded-2xl object-cover" />
 	</div>
-
 	<div class="bg-primary-500 max-w-[90rem] px-[2rem] md:px-[4rem] lg:px-[7.62rem] min-h-[46.75rem] py-16">
 		<h2>Benefits</h2>
 		<h3>What makes our Moringa Leaves so amazing.</h3>

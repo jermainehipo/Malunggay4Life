@@ -1,4 +1,4 @@
-import bottle from "../../lib/images/bottle.png";
+import bottle from "$lib/images/bottle.png";
 
 export const load = async ({ locals}) => {
 

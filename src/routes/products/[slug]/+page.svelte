@@ -1,5 +1,5 @@
 <script>
-	import Counter from "../../../lib/components/Counter.svelte";
+	import Counter from "$lib/components/Counter.svelte";
 	export let data;
 
     let numOfProduct = 1;

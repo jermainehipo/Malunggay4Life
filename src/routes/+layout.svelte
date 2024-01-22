@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { auth, db } from "../lib/firebase/firebase";
+	import { auth, db } from "$lib/firebase/firebase";
 	import { getDoc, doc, setDoc, type DocumentData } from "firebase/firestore";
 	import "../app.postcss";
 	import { AppBar, AppShell, ListBox } from "@skeletonlabs/skeleton";
@@ -10,8 +10,8 @@
 	import { storePopup } from "@skeletonlabs/skeleton";
 	import { Drawer, getDrawerStore } from "@skeletonlabs/skeleton";
 	import { initializeStores } from "@skeletonlabs/skeleton";
-	import MobileMenu from "../lib/drawers/MobileMenu.svelte";
-	import PageFooter from "../lib/components/PageFooter.svelte";
+	import MobileMenu from "$lib/drawers/MobileMenu.svelte";
+	import PageFooter from "$lib/components/PageFooter.svelte";
 	import { authStore } from "../store/store";
 	import { setContext } from "svelte";
 

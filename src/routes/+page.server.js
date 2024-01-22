@@ -1,4 +1,4 @@
-import bottle from "../lib/Images/bottle.png";
+import bottle from "$lib/Images/bottle.png";
 export const load = async ({ params }) => {
 
     //Set page data

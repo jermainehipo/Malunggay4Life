@@ -1,5 +1,5 @@
 <script>
-	import CartItem from "../../lib/components/CartItem.svelte";
+	import CartItem from "$lib/components/CartItem.svelte";
 	export let data;
 
 	$: totalItems = data.cartItems.length;
