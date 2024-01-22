@@ -6,7 +6,7 @@ export function load({ params }) {
 
 	if (params.slug == "moringa-capsules") {
 		return {
-			id: 1;
+			id: 1,
 			name: "Moringa Capsules", 
 			subtitle: "(120 pieces)",
 			description_1: 'Unlock the incredible benefits of Moringa with our Pure Organic Moringa Capsules. Sourced from the finest Moringa trees, these capsules are a convenient and natural way to incorporate the "Miracle Tree" into your daily routine.',
