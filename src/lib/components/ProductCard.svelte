@@ -9,7 +9,7 @@
     export let name: any;
     export let price: any;
 
-    export let product : Product = {id: id, name: "", price: ""};
+    export let product : Product = {id: id, name: name, price: price};
     let cart = get(cartItems); // Get Cart Items
     let cartItemIndex = cart.findIndex((item) => {return item.id === product.id })  // Find index that cart item is at
     let cartProduct = cart[cartItemIndex];  // Store product
