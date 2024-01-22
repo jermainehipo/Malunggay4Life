@@ -2,7 +2,7 @@ import bottle from "../lib/Images/bottle.png";
 export const load = async ({ params }) => {
 
     //Set page data
-    const items = [
+    const products = [
         {
             id: 1,
             name: "Moringa Capsules",
@@ -113,6 +113,6 @@ export const load = async ({ params }) => {
     ]
 
     return {
-        items, reviewCards,
+        products, reviewCards,
     };
 };

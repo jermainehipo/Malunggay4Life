@@ -10,8 +10,8 @@
 	import { storePopup } from "@skeletonlabs/skeleton";
 	import { Drawer, getDrawerStore } from "@skeletonlabs/skeleton";
 	import { initializeStores } from "@skeletonlabs/skeleton";
-	import MobileMenu from "./MobileMenu.svelte";
-	import PageFooter from "./PageFooter.svelte";
+	import MobileMenu from "../lib/drawers/MobileMenu.svelte";
+	import PageFooter from "../lib/components/PageFooter.svelte";
 	import { authStore } from "../store/store";
 	import { setContext } from "svelte";
 
@@ -41,7 +41,9 @@
 		}
 	}
 
+
 	onMount(() => {
+		window.scrollTo(0, 0);
 		console.log("Mounting");
 
 		// Have pages start from the top everytime

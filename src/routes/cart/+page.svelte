@@ -1,9 +1,6 @@
 <script>
-	// @ts-nocheck
-	import CartItem from "../CartItem.svelte";
+	import CartItem from "../../lib/components/CartItem.svelte";
 	export let data;
-    let id;
-    let newPrice;
 
 	$: totalItems = data.cartItems.length;
 
@@ -14,7 +11,6 @@
 		});
         return subtotal.toFixed(2);
 	}
-    
 
 </script>
 
@@ -32,9 +28,8 @@
 				<p class="w-[6rem] text-center"><b>Price</b></p>
 			</div>
 			<!-- Cart Item -->
-			{#each data.cartItems as { id, name, description, source, alt, pricePerItem, numOfItem, totalPrice, inStock }}
-				<CartItem on:update={calculateTotal} {id} {name} {description} {source} {alt} {pricePerItem} {numOfItem} {totalPrice} {inStock} />
-                asfd
+			{#each data.cartItems as { id, name, description, src, alt, price, quantity, totalPrice, inStock }}
+				<CartItem on:update={calculateTotal} id={id} name={name} description={description} src={src} alt={alt} price={price} quantity={quantity} totalPrice={totalPrice} inStock={inStock} />
 			{/each}
 		</div>
 

@@ -1,7 +1,5 @@
 <script>
-	// @ts-nocheck
-
-	import Counter from "../../Counter.svelte";
+	import Counter from "../../../lib/components/Counter.svelte";
 	export let data;
 
     let numOfProduct = 1;
@@ -21,7 +19,7 @@
 			<p>{data.description_1}</p>
 			<p>{data.description_2}</p>
 		</div>
-		<Counter bind:value={numOfProduct}/>
+		<Counter id={data.id} bind:value={numOfProduct}/>
 		<button class="btn bg-primary-500 w-fit">
 			Add to Cart <span class="w-[1.25rem]" />${price}
 		</button>
