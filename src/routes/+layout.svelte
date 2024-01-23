@@ -100,6 +100,8 @@
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
+
+{#if $authStore.loading}
 <Drawer>
 	{#if $drawerStore.id === "MobileMenu"}
 		<MobileMenu />
@@ -158,3 +160,4 @@
 		<div class="container max-w-[90rem]"><PageFooter /></div>
 	</div>
 </AppShell>
+{/if}
