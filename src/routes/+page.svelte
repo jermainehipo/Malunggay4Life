@@ -2,6 +2,7 @@
 	import { Avatar } from "@skeletonlabs/skeleton";
 	import leaves from "$lib/Images/leaves.jpg";
 	import story from "$lib/Images/story.jpg";
+	import ProductCard from "$lib/components/ProductCard.svelte";
 
 	export let data;
 
@@ -130,21 +131,7 @@
 		<div class="flex flex-wrap justify-center gap-[4rem] lg:gap-[6rem] my-8">
 			<!-- Product Item -->
 			{#each data.products as product}
-				<div class="w-fit">
-					<a href="/products/{product.slug.url}">
-						<img src={product.src} alt={product.alt} class="w-[12.5rem] h-[12.5rem] border" />
-						<p>{product.name}</p>
-					</a>
-					<div class="flex">
-						<i class="fa-solid fa-star" style="color: #ffd500;"></i>
-						<i class="fa-solid fa-star" style="color: #ffd500;"></i>
-						<i class="fa-solid fa-star" style="color: #ffd500;"></i>
-						<i class="fa-solid fa-star" style="color: #ffd500;"></i>
-						<i class="fa-solid fa-star" style="color: #ffd500;"></i>
-					</div>
-					<p><b>${product.price}</b></p>
-					<button class="btn bg-primary-500 w-full">Add to Cart</button>
-				</div>
+				<ProductCard product={product}/>
 			{/each}
 		</div>
 	</div>

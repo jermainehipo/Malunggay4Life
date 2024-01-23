@@ -39,7 +39,7 @@
 
 	<div class="flex mt-[3.31rem] mb-[7.19rem]">
 		<!-- Item Table -->
-		<div class="flex flex-col justify-center gap-[1.25rem]">
+		<div class="flex flex-col gap-[1.25rem]">
 			<div class="flex gap-[1.25rem] pb-[0.5rem] border-b-2 border-gray-500">
 				<p class="w-[32rem]"><b>Item</b></p>
 				<p class="w-[7.5rem] text-center"><b>Quantity</b></p>
@@ -76,7 +76,7 @@
 		<!-- Saved Items -->
 		{#each data.savedItems as item}
 			<div class="flex gap-[0.56rem] pb-[3.12rem] border-b-2 border-gray-300">
-				<img src={item.source} alt={item.alt} class="max-w-[12.5rem] max-h-[12.5rem]" />
+				<img src={item.src} alt={item.alt} class="max-w-[12.5rem] max-h-[12.5rem]" />
 				<div>
 					<div class="flex gap-[2.5rem]">
 						<div class="flex flex-col gap-[1rem] w-[18.75rem] h-[10.625rem]">
@@ -85,7 +85,7 @@
 								<p>{item.description}</p>
 							</div>
 							<div class="flex flex-col">
-								<subtitle>${item.pricePerItem}</subtitle>
+								<subtitle>${item.price}</subtitle>
 								<subtitle>{item.inStock ? "In Stock" : "Out of Stock"}</subtitle>
 							</div>
 						</div>
