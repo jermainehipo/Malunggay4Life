@@ -1,4 +1,5 @@
 import { writable, get } from "svelte/store";
+import { productItems } from "./products";
 
 
 export const cartItems = writable<CartItem[]>([]);
@@ -7,15 +8,17 @@ export const cartItems = writable<CartItem[]>([]);
 export const addToCart = (id: number, quantity: number) => {
     let items = get(cartItems);
     let itemPosition = items.findIndex(
-        (item) => { return item.id == id}
+        (item) => { return item.product.id == id}
     );
 
     if(itemPosition !== -1) {
-        // Item is already in cart, add to quantity of the item
+        // Item is already in cart, add to quantity of the item and add to totalPrice
         cartItems.update(() => {
+            // Calculate new totalPrice
             let updatedItems = items.map((item) => {
-                if (item.id === id) {
-                    return { ...item, quantity: item.quantity + quantity};
+                if (item.product.id === id) {
+                    let totalPrice = (item.product.price * quantity);
+                    return { ...item, quantity: item.quantity + quantity, totalPrice: item.totalPrice + totalPrice};
                 };
                 return item;
             })
@@ -23,8 +26,20 @@ export const addToCart = (id: number, quantity: number) => {
         });
     } else {
         // Item not in cart, add object to cart
+
+        // Get product information
+        let products = get(productItems);
+        let productIndex = products.findIndex((item) => {
+			return item.id === id;
+		});
+        let product = products[productIndex];
+
+        // Calculate new totalPrice
+        let totalPrice = (product.price * quantity);
+
+        // Update
         cartItems.update(() => {
-            return [ ...items, {id: id, quantity: quantity}];
+            return [ ...items, {product: product, quantity: quantity, totalPrice: totalPrice}];
         });
     }
 }
@@ -33,7 +48,7 @@ export const addToCart = (id: number, quantity: number) => {
 export const removeFromCart = (id: number, quantity: number) => {
     let items = get(cartItems);
     let itemPosition = items.findIndex(
-        (item) => { return item.id == id}
+        (item) => { return item.product.id == id}
     );
 
     // If item quantity is 1, remove item from array
@@ -41,10 +56,20 @@ export const removeFromCart = (id: number, quantity: number) => {
         items.splice(itemPosition, 1);
     }
 
+    // Get product information
+    let products = get(productItems);
+    let productIndex = products.findIndex((item) => {
+        return item.id === id;
+    });
+    let product = products[productIndex];
+
+    // Update
     cartItems.update(() => {
         let updatedItems = items.map((item) => {
-            if (item.id === id) {
-                return { ...item, quantity: item.quantity - quantity};
+            if (item.product.id === id) {
+                // Calculate new totalPrice
+                let totalPrice = (product.price * (item.quantity - quantity));
+                return { ...item, quantity: item.quantity - quantity, totalPrice: totalPrice};
             };
             return item;
         })

@@ -7,7 +7,7 @@ declare class Product {
     id: number              // Stripe id
     name: string            // Product name
     description: string     // Short description for cart page
-    price: decimal          // Product price per item
+    price: number           // Product price per item
     inStock: boolean        // In stock or not / availability
     src: string             // Image source
     alt: string             // Image alt
@@ -20,6 +20,7 @@ declare class Product {
 }
 
 declare class CartItem {
-    id: number
-    quantity: number
+    product: Product        // Product information
+    quantity: number        // Number of a product in cart
+    totalPrice: number      // Price of product x Quantity
 }

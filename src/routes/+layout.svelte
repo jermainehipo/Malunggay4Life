@@ -14,20 +14,16 @@
 	import PageFooter from "$lib/components/PageFooter.svelte";
 	import logo from "$lib/Logos/M4L-transparent.png";
 	import { authStore } from "../store/store";
-	import { setContext } from "svelte";
-	import { page } from "$app/stores";
+	import { cartItems } from "../cart";
+	import { get } from "svelte/store";
 
 	initializeStores();
 	const drawerStore = getDrawerStore();
 	const authRoutes = ["/account"];
 	const scrollExceptions = ["/account", "/log-in", "/sign-up"];
 
-	let currentPage;
 	let screenSize: number; // For mobile menu display
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
-
-	// Subscribe to changes in page
-	// $: currentPage = $page.path;
 
 	// Mobile Menu Drawer Store Config
 	const openMobileMenu = () => {
@@ -37,17 +33,33 @@
 		});
 	};
 
+	// Cart button text updating
+	let cart = get(cartItems);
+	let totalItems = 0;
+	cart.forEach((cartItem) => {
+		totalItems += cartItem.quantity;
+	});
+
+	// Listen to changes in cartItems and update
+	const unsubscribeCart = cartItems.subscribe((newCartValue) => {
+		cart = newCartValue;
+		totalItems = 0;
+		cart.forEach((cartItem) => {
+			totalItems += cartItem.quantity;
+		});
+	});
+
 	onMount(() => {
 		console.log("Mounting");
-		const currentPath = window.location.pathname;
+
+		const currentPath = window.location.pathname; // Get current path
 
 		// Have pages start from the top everytime besides for account page
-		if (!(scrollExceptions.includes(currentPath))) {
-			setContext("scroll", "top");
+		if (!scrollExceptions.includes(currentPath)) {
+			// setContext("scroll", "top");
 		}
 
-		const unsubscribe = auth.onAuthStateChanged(async (user) => {
-
+		const unsubscribeAuth = auth.onAuthStateChanged(async (user) => {
 			// If not authenticated and attempted access on auth route, redirect
 			if (!user && authRoutes.includes(currentPath)) {
 				window.location.href = "/log-in";
@@ -74,11 +86,16 @@
 				return {
 					...curr,
 					user,
-					data: dataToSetToStore,
 					loading: false,
+					data: dataToSetToStore,
 				};
 			});
 		});
+
+		return () => {
+			unsubscribeCart();
+			unsubscribeAuth();
+		};
 	});
 </script>
 
@@ -99,7 +116,7 @@
 					</button>
 				{/if}
 				<a href="/">
-					<img class="max-h-[3.75rem]" alt="Malunggay 4 Life Logo" src="{logo}" />
+					<img class="max-h-[3.75rem]" alt="Malunggay 4 Life Logo" src={logo} />
 				</a>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
@@ -116,7 +133,7 @@
 						</button>
 						<a href="/cart" class="btn variant-filled-primary m-0 flex gap-2" data-sveltekit-preload-data="hover">
 							<i class="fa-solid fa-cart-shopping"></i>
-							Cart 0
+							Cart {totalItems}
 						</a>
 					</div>
 				{:else}

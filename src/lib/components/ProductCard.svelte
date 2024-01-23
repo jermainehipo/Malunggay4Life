@@ -2,13 +2,6 @@
 	import { get } from "svelte/store";
     import { cartItems, addToCart } from "../../cart";
 
-    // export let id: any;
-    // export let slug: any;
-    // export let src: any;
-    // export let alt: any;
-    // export let name: any;
-    // export let price: any;
-
     export let product: Product;
     let cart = get(cartItems); // Get Cart Items
     let cartItemIndex = cart.findIndex((item) => {return item.id === product.id })  // Find index that cart item is at

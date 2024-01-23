@@ -6,13 +6,13 @@
 	export let value: any;
 
     let cart = get(cartItems); // Get Cart Items
-    let cartItemIndex = cart.findIndex((item) => {return item.id === id })  // Find index that cart item is at
+    let cartItemIndex = cart.findIndex((item) => {return item.product.id === id })  // Find index that cart item is at
     let cartProduct = cart[cartItemIndex];  // Store product
 
     // Listen to changes in cartItems and update
     cartItems.subscribe((newCartValue) => {
         cart = newCartValue;
-        cartItemIndex = cart.findIndex((item) => {return item.id === id })
+        cartItemIndex = cart.findIndex((item) => {return item.product.id === id })
         cartProduct = cart[cartItemIndex];
         console.log(cart);
     })

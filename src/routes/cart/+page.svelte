@@ -1,16 +1,34 @@
-<script>
+<script lang="ts">
 	import CartItem from "$lib/components/CartItem.svelte";
+	import { get } from "svelte/store";
+	import { cartItems } from "../../cart";
+	import { onDestroy } from "svelte";
+
 	export let data;
 
-	$: totalItems = data.cartItems.length;
+	// Cart button text updating
+	let cart = get(cartItems);
+	let totalItems = 0;
+	let subtotal = 0;
 
-	function calculateTotal() {
-        let subtotal = 0;
-		data.cartItems.forEach((cartItem) => {
+	if (cart.length != 0) {
+		cart.forEach((cartItem) => {
+			totalItems += cartItem.quantity;
+		});
+	}
+
+	// Listen to changes in cartItems and update
+	const unsubscribeCart = cartItems.subscribe((newCartValue) => {
+		cart = newCartValue;
+		totalItems = 0;
+		subtotal = 0;
+		cart.forEach((cartItem) => {
+			totalItems += cartItem.quantity;
 			subtotal += cartItem.totalPrice;
 		});
-        return subtotal.toFixed(2);
-	}
+	});
+
+	onDestroy(unsubscribeCart);
 
 </script>
 
@@ -28,8 +46,8 @@
 				<p class="w-[6rem] text-center"><b>Price</b></p>
 			</div>
 			<!-- Cart Item -->
-			{#each data.cartItems as { id, name, description, src, alt, price, quantity, totalPrice, inStock }}
-				<CartItem on:update={calculateTotal} id={id} name={name} description={description} src={src} alt={alt} price={price} quantity={quantity} totalPrice={totalPrice} inStock={inStock} />
+			{#each cart as { product, quantity, totalPrice }}
+				<CartItem {product} {quantity} {totalPrice} />
 			{/each}
 		</div>
 
@@ -37,7 +55,7 @@
 		<div class="border-l-2 border-gray-500 p-[1.31rem]">
 			<div class="grid grid-cols-[18.75rem_minmax(3.75rem,_1fr)] border-b-2 border-gray-500 pb-[0.5rem]">
 				<p><b>Subtotal (Items {totalItems})</b></p>
-				<p><b>${calculateTotal()}</b></p>
+				<p><b>${subtotal.toFixed(2)}</b></p>
 				<p>Shipping</p>
 				<p>TBD</p>
 				<p>Tax</p>
@@ -45,7 +63,7 @@
 			</div>
 			<div class="grid grid-cols-[18.75rem_minmax(3.75rem,_1fr)] my-[0.5rem]">
 				<p>Estimated Total</p>
-				<p>${calculateTotal()}</p>
+				<p>${subtotal.toFixed(2)}</p>
 			</div>
 			<button class="btn bg-primary-500">Checkout</button>
 		</div>
