@@ -1,8 +1,9 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { writable } from "svelte/store";
+import { persisted } from "svelte-persisted-store";
+
 import { auth } from "../lib/firebase/firebase";
 
-export const authStore = writable({
+export const authStore = persisted("user", {
     user: null,
     loading: true,
     data: {},

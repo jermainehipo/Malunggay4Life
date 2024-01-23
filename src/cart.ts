@@ -1,8 +1,9 @@
-import { writable, get } from "svelte/store";
+import { get } from "svelte/store"; 
+import { persisted } from "svelte-persisted-store";
 import { productItems } from "./products";
 
 
-export const cartItems = writable<CartItem[]>([]);
+export const cartItems = persisted<CartItem[]>("cartItems", []);
 
 // Add to cart
 export const addToCart = (id: number, quantity: number) => {

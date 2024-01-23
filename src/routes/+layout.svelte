@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from "svelte";
+	import { onMount, setContext } from "svelte";
 	import { auth, db } from "$lib/firebase/firebase";
 	import { getDoc, doc, setDoc, type DocumentData } from "firebase/firestore";
 	import "../app.postcss";
@@ -56,7 +56,7 @@
 
 		// Have pages start from the top everytime besides for account page
 		if (!scrollExceptions.includes(currentPath)) {
-			// setContext("scroll", "top");
+			setContext("scroll", "top");
 		}
 
 		const unsubscribeAuth = auth.onAuthStateChanged(async (user) => {
