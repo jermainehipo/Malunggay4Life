@@ -3,7 +3,7 @@ import { persisted } from "svelte-persisted-store";
 
 import { auth } from "../lib/firebase/firebase";
 
-export const authStore = persisted("user", {
+export const authStore = persisted("authStore", {
     user: null,
     loading: true,
     data: {},

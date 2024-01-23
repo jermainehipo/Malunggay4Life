@@ -100,6 +100,8 @@
 </script>
 
 <svelte:window bind:innerWidth={screenSize} />
+
+{#if !$authStore.loading}
 <Drawer>
 	{#if $drawerStore.id === "MobileMenu"}
 		<MobileMenu />
@@ -127,25 +129,37 @@
 						<a href="/our-story" class="font-bold place-self-center">Our Story</a>
 						<button id="account_1" class="w-8 h-12">
 							<!-- (January 12st, 2024) user from FontAwesome. https://fontawesome.com/icons/user?f=classic&s=solid -->
+							{#if !auth.currentUser}
+							<a href="/log-in">
+								<i class="fa-solid fa-user fa-lg"></i>
+							</a>
+							{:else} 
 							<a href="/account">
 								<i class="fa-solid fa-user fa-lg"></i>
 							</a>
+							{/if}
 						</button>
-						<a href="/cart" class="btn variant-filled-primary m-0 flex gap-2" data-sveltekit-preload-data="hover">
+						<a href="/cart" class="btn bg-primary-500 w-[8rem] m-0 flex gap-2" data-sveltekit-preload-data="hover">
 							<i class="fa-solid fa-cart-shopping"></i>
 							Cart {totalItems}
 						</a>
 					</div>
 				{:else}
 					<button class="w-8 h-12">
-						<!-- (August 6th, 2023) user from FontAwesome. https://fontawesome.com/icons/user?f=classic&s=regular -->
-						<a href="/account">
-							<i class="fa-regular fa-user fa-lg"></i>
-						</a>
+						<!-- (January 12st, 2024) user from FontAwesome. https://fontawesome.com/icons/user?f=classic&s=solid -->
+						{#if !auth.currentUser}
+							<a href="/log-in">
+								<i class="fa-solid fa-user fa-lg"></i>
+							</a>
+							{:else} 
+							<a href="/account">
+								<i class="fa-solid fa-user fa-lg"></i>
+							</a>
+							{/if}
 					</button>
 					<a href="/cart" class="btn variant-filled-primary m-0 flex gap-2" data-sveltekit-preload-data="hover">
 						<i class="fa-solid fa-cart-shopping"></i>
-						0
+						{totalItems}
 					</a>
 				{/if}
 			</svelte:fragment>
@@ -158,3 +172,4 @@
 		<div class="container max-w-[90rem]"><PageFooter /></div>
 	</div>
 </AppShell>
+{/if}

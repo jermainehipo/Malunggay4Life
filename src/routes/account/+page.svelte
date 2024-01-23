@@ -1,32 +1,13 @@
 <script>
 	import { auth } from "$lib/firebase/firebase";
 	import { authHandlers, authStore } from "../../store/store";
-	import { onMount } from "svelte";
-	// import { useNavigate } from "svelte-navigator";
-
-	// const navigate = useNavigate();
 
 	function logout() {
-		// If not authenticated return;
-		if (!auth.currentUser) return;
-
 		// Log out and redirect to landing page
 		authHandlers.logout();
 		console.log("Logged out");
 		window.location.href = "/";
 	}
-
-	onMount(() => {
-		return new Promise(() => {
-			auth.onAuthStateChanged((user) => {
-				console.log(user + " " + auth.currentUser);
-				if (!user) {
-					console.log("Not authenticated, redirecting");
-					window.location.href = "/log-in";
-				}
-			});
-		});
-	});
 </script>
 
 {#if !$authStore.loading}
