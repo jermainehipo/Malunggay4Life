@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { get } from "svelte/store";
-	import { cartItems, removeFromCart } from "../../cart";
+	import { removeFromCart } from "../../cart";
 
-	import Counter from "./Counter.svelte";
+	import CartCounter from "./CartCounter.svelte";
 
 	export let product: Product;
 	export let quantity: number;
@@ -11,12 +10,14 @@
 </script>
 
 <div class="flex gap-[0.56rem] pb-[3.12rem] border-b-2 border-gray-300">
-	<img src={product.src} alt={product.alt} class="max-w-[12.5rem] max-h-[12.5rem]" />
+	<a href="/products/{product.slug.url}"><img src={product.src} alt={product.alt} class="object-cover w-[12rem] h-[12.5rem]" /></a>
 	<div>
 		<div class="flex gap-[2.5rem]">
-			<div class="flex flex-col gap-[1rem] w-[18.75rem] h-[10.625rem]">
+			<div class="flex flex-col gap-[1rem] w-[18rem] h-[10.625rem]">
 				<div>
-					<p><b>{product.name}</b></p>
+					<a href="/products/{product.slug.url}" class="hover:underline">
+						<p><b>{product.name}</b></p>
+					</a>
 					<p>{product.description}</p>
 				</div>
 				<div class="flex flex-col">
@@ -26,7 +27,7 @@
 			</div>
 
 			<!-- Counter -->
-			<Counter id={product.id} bind:value={quantity} />
+			<CartCounter id={product.id} bind:value={quantity} />
 
 			<p><b>${totalPrice.toFixed(2)}</b></p>
 		</div>

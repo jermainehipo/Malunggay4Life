@@ -6,7 +6,6 @@ import { productItems } from "../../../products";
 export function load({ params }) {
 	const approvedSlugs = ["moringa-powder-250", "moringa-powder-125"]
 	const products = get(productItems);
-
 	if (params.slug == "moringa-capsules-120") {
 		let productIndex = products.findIndex((item) => {
 			return item.slug.url === params.slug;

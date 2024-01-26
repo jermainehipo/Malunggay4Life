@@ -3,9 +3,7 @@
 	import { auth, db } from "$lib/firebase/firebase";
 	import { getDoc, doc, setDoc, type DocumentData } from "firebase/firestore";
 	import "../app.postcss";
-	import { AppBar, AppShell } from "@skeletonlabs/skeleton";
-
-	// Floating UI for Popups
+	import { AppBar, AppShell, Toast } from "@skeletonlabs/skeleton";
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from "@floating-ui/dom";
 	import { storePopup } from "@skeletonlabs/skeleton";
 	import { Drawer, getDrawerStore } from "@skeletonlabs/skeleton";
@@ -106,6 +104,7 @@
 		<MobileMenu />
 	{/if}
 </Drawer>
+<Toast position="tr" class="mt-[4rem]" buttonDismiss="btn-icon bg-primary-500" />
 <AppShell>
 	<svelte:fragment slot="header">
 		<AppBar background="bg-secondary-500">

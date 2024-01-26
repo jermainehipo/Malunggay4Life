@@ -30,8 +30,8 @@ export const productItems = writable<Product[]>([
         slug: {
             url: "moringa-capsules-60",
             subtitle: "(60 pcs)",
-            slugDesc1: "",
-            slugDesc2: "",
+            slugDesc1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec nam aliquam sem et tortor consequat id porta nibh. Commodo ullamcorper a lacus vestibulum sed arcu non.",
+            slugDesc2: "Diam donec adipiscing tristique risus nec feugiat. Phasellus vestibulum lorem sed risus. Sed viverra tellus in hac habitasse. Volutpat sed cras ornare arcu dui vivamus arcu felis.",
         }
     },
     {
@@ -45,8 +45,8 @@ export const productItems = writable<Product[]>([
         slug: {
             url: "moringa-powder-250",
             subtitle: "(250 grams)",
-            slugDesc1: "",
-            slugDesc2: "",
+            slugDesc1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec nam aliquam sem et tortor consequat id porta nibh. Commodo ullamcorper a lacus vestibulum sed arcu non.",
+            slugDesc2: "Diam donec adipiscing tristique risus nec feugiat. Phasellus vestibulum lorem sed risus. Sed viverra tellus in hac habitasse. Volutpat sed cras ornare arcu dui vivamus arcu felis.",
         }
     },
     {
@@ -60,8 +60,8 @@ export const productItems = writable<Product[]>([
         slug: {
             url: "moringa-powder-125",
             subtitle: "(125 grams)",
-            slugDesc1: "",
-            slugDesc2: "",
+            slugDesc1: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec nam aliquam sem et tortor consequat id porta nibh. Commodo ullamcorper a lacus vestibulum sed arcu non.",
+            slugDesc2: "Diam donec adipiscing tristique risus nec feugiat. Phasellus vestibulum lorem sed risus. Sed viverra tellus in hac habitasse. Volutpat sed cras ornare arcu dui vivamus arcu felis.",
         }
     },
 ]);
