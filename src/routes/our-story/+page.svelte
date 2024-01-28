@@ -1,7 +1,7 @@
 <script>
     import story from "$lib/Images/story.jpg";
 </script>
-<main class="container max-w-[90rem] mt-[4.37rem] mb-[4rem]">
+<main class="container max-w-[90rem] mb-[4rem]">
     <div class="flex justify-center ">
     </div>
     <div class="bg-primary-500 max-w-[90rem] min-h-[46.75rem] px-[2rem] md:px-[4rem] lg:px-[7.62rem] py-16">

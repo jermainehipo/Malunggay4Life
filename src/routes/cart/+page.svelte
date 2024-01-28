@@ -10,6 +10,7 @@
 	let cart = get(cartItems);
 	let totalItems = 0;
 	let subtotal = 0;
+	let screenSize: number;
 
 	if (cart.length != 0) {
 		cart.forEach((cartItem) => {
@@ -32,19 +33,41 @@
 
 </script>
 
-<main class="container max-w-[90rem] mt-[4.37rem] px-[7.75rem]">
+<svelte:window bind:innerWidth={screenSize} />
+
+<main class="container max-w-[90rem] mt-[4.37rem] px-[1rem] lg:px-[2rem] xl:px-[7.62rem]">
 	<div>
 		<h1 class="text-[3rem] leading-[3.7rem] sm:text-[64px] sm:leading-[80px] text-center">Your Shopping Cart</h1>
 	</div>
 
+	{#if screenSize <= 1300}
+	<div class="border-l-2 border-gray-500 p-[1.31rem] w-fit mt-[4rem]">
+		<div class="grid grid-cols-[12rem_minmax(3.75rem,_1fr)] sm:grid-cols-[18.75rem_minmax(3.75rem,_1fr)] border-b-2 border-gray-500 pb-[0.5rem]">
+			<p><b>Subtotal (Items {totalItems})</b></p>
+			<p><b>${subtotal.toFixed(2)}</b></p>
+			<p>Shipping</p>
+			<p>TBD</p>
+			<p>Tax</p>
+			<p>TBD</p>
+		</div>
+		<div class="grid grid-cols-[12rem_minmax(3.75rem,_1fr)] sm:grid-cols-[18.75rem_minmax(3.75rem,_1fr)] my-[0.5rem]">
+			<p>Estimated Total</p>
+			<p>${subtotal.toFixed(2)}</p>
+		</div>
+		<button class="btn bg-primary-500">Checkout</button>
+	</div>
+	{/if}
+
 	<div class="flex mt-[3.31rem] mb-[7.19rem]">
 		<!-- Item Table -->
-		<div class="flex flex-col gap-[1.25rem]">
+		<div class="flex flex-wrap gap-[2rem] md:gap-[1.25rem]">
+			{#if screenSize > 767}
 			<div class="flex gap-[1.25rem] pb-[0.5rem] border-b-2 border-gray-500">
-				<p class="w-[32rem]"><b>Item</b></p>
+				<p class="w-[32rem]"><b>Items</b></p>
 				<p class="w-[7.5rem] text-center"><b>Quantity</b></p>
 				<p class="w-[6rem] text-center"><b>Price</b></p>
 			</div>
+			{/if}
 			<!-- Cart Item -->
 			{#each cart as { product, quantity, totalPrice }}
 				<CartItem {product} {quantity} {totalPrice} />
@@ -52,6 +75,7 @@
 		</div>
 
 		<!-- Total -->
+		{#if screenSize > 1300}
 		<div class="border-l-2 border-gray-500 p-[1.31rem]">
 			<div class="grid grid-cols-[18.75rem_minmax(3.75rem,_1fr)] border-b-2 border-gray-500 pb-[0.5rem]">
 				<p><b>Subtotal (Items {totalItems})</b></p>
@@ -67,6 +91,7 @@
 			</div>
 			<button class="btn bg-primary-500">Checkout</button>
 		</div>
+		{/if}
 	</div>
 
 	<div class="flex flex-col gap-[1.25rem] mb-[7.19rem]">
