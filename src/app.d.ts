@@ -4,7 +4,7 @@ declare namespace App{
 
 // Information Product object, not used directly for cart but is used in reference to add Cart objects
 declare class Product {
-    id: number              // Stripe id
+    id: string              // Stripe id
     name: string            // Product name
     description: string     // Short description for cart page
     price: number           // Product price per item

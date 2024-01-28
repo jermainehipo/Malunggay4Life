@@ -5,7 +5,7 @@ import pouch from "$lib/Images/pouch.png";
 
 export const productItems = writable<Product[]>([
     {
-        id: 1,
+        id: "price_1Odg8XAafpXr9MOzeGNBnry1",
         name: "Moringa Capsules - 120pcs",
         description: "120 pieces/capsules",
         price: 19.99,
@@ -20,7 +20,7 @@ export const productItems = writable<Product[]>([
         }
     },
     {
-        id: 2,
+        id: "price_1Odg8tAafpXr9MOzYB7C8RvB",
         name: "Moringa Capsules - 60pcs",
         description: "60 pieces/capsules",
         price: 11.99,
@@ -35,7 +35,7 @@ export const productItems = writable<Product[]>([
         }
     },
     {
-        id: 3,
+        id: "price_1Odg9KAafpXr9MOzJsqP8onH",
         name: "Moringa Powder - 250g",
         description: "250 grams",
         price: 15.99,
@@ -50,7 +50,7 @@ export const productItems = writable<Product[]>([
         }
     },
     {
-        id: 4,
+        id: "price_1Odg9jAafpXr9MOzZt9KD1fO",
         name: "Moringa Powder - 125g",
         description: "125 grams",
         price: 8.99,

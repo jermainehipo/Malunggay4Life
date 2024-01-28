@@ -29,6 +29,22 @@
 		});
 	});
 
+	async function checkout() {
+		await fetch("api/stripeCheckout", {
+			method: "POST",
+			headers: {
+				"content-type": "application/json"
+			},
+			body: JSON.stringify(
+				{ items: cart }
+			)
+		}).then((data) => {
+			return data.json();
+		}).then((data) => {
+			window.location.replace(data.url);
+		})
+	}
+
 	onDestroy(unsubscribeCart);
 
 </script>
@@ -54,7 +70,7 @@
 			<p>Estimated Total</p>
 			<p>${subtotal.toFixed(2)}</p>
 		</div>
-		<button class="btn bg-primary-500">Checkout</button>
+		<button class="btn bg-primary-500" on:click={() => checkout()}>Checkout</button>
 	</div>
 	{/if}
 

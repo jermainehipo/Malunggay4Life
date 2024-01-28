@@ -9,7 +9,7 @@
 	let quantity = 1;
 	let price = "";
 
-	$: price = (quantity * data.price).toFixed(2);
+	$: price = (quantity * ((!data.price)? 0 : data.price)).toFixed(2);
 
     const toastStore = getToastStore();
 
