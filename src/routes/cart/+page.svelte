@@ -78,11 +78,11 @@
 		<!-- Item Table -->
 		<div class="flex flex-wrap gap-[2rem] md:gap-[1.25rem]">
 			{#if screenSize > 767}
-			<div class="flex gap-[1.25rem] pb-[0.5rem] border-b-2 border-gray-500">
-				<p class="w-[32rem]"><b>Items</b></p>
-				<p class="w-[7.5rem] text-center"><b>Quantity</b></p>
-				<p class="w-[6rem] text-center"><b>Price</b></p>
-			</div>
+				<div class="flex gap-[1.25rem] w-[50rem] h-fit pb-[0.5rem] border-b-2 border-gray-500">
+					<p class="w-[32rem]"><b>Items</b></p>
+					<p class="w-[7.5rem] text-center"><b>Quantity</b></p>
+					<p class="w-[6rem] text-center"><b>Price</b></p>
+				</div>
 			{/if}
 			<!-- Cart Item -->
 			{#each cart as { product, quantity, totalPrice }}
