@@ -171,19 +171,19 @@
 			<div bind:this={elemReviews} class="flex gap-[3.12rem] snap-x snap-mandatory scroll-smooth flex overflow-x-auto">
 				<!-- Review Card -->
 				{#each data.reviewCards as reviewCard}
-					<div class="bg-tertiary-500 flex flex-col gap-[1.31rem] w-[25rem] h-[14.375rem] px-[1.75rem] py-[1.75rem] rounded-xl">
+					<div class="bg-tertiary-500 flex flex-col gap-[1.31rem] min-w-[21rem] h-[14.375rem] px-[1.75rem] py-[1.75rem] rounded-xl">
 						<div class="flex gap-[2rem] content-center">
 							<div>
 								<Avatar src={reviewCard.src} width="w-[2.5rem]" rounded="rounded-full" />
 							</div>
-							<p class="text-center w-[8rem]">
+							<p class="text-center w-[8rem] w-full justify-self-center">
 								<b>
 									{reviewCard.name}
 									<br />
 									{reviewCard.location}
 								</b>
 							</p>
-							<p class="place-self-center">
+							<p class="place-self-center w-[4rem]">
 								<b>{reviewCard.rating}</b>
 							</p>
 						</div>
