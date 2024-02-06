@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { removeFromSaved } from "../../saved";
+	import { addToCart } from "../../cart";
+    import { removeFromSaved } from "../../saved";
 
 
 	export let product: Product;
@@ -22,9 +23,12 @@
                 </div>
             </div>
             <p><b>$19.99</b></p>
+            <p>Quantity: {quantity}</p>
         </div>
         <div class="flex gap-[1.25rem]">
-            <button class="btn bg-primary-500">Move to Cart</button>
+            <button on:click={() => {addToCart(product.id, quantity); removeFromSaved(product.id, quantity)}} class="btn bg-primary-500">
+                Move to Cart
+            </button>
             <button on:click={() => {removeFromSaved(product.id, quantity)}}>
                 <subtitle>Remove</subtitle>
             </button>

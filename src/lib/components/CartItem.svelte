@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { removeFromCart } from "../../cart";
+	import { addToSaved } from "../../saved";
 
 	import CartCounter from "./CartCounter.svelte";
 
@@ -24,15 +25,11 @@
 			</div>
 		</div>
 		<div class="flex gap-[1.25rem]">
-			<button
-				on:click={() => {
-					removeFromCart(product.id, quantity);
-				}}
-			>
+			<button on:click={() => {removeFromCart(product.id, quantity);}}>
 				<subtitle>Remove</subtitle>
 			</button>
 			<p>|</p>
-			<button>
+			<button on:click={() => {addToSaved(product.id, quantity); removeFromCart(product.id, quantity)}}>
 				<subtitle>Save for Later</subtitle>
 			</button>
 		</div>

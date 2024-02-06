@@ -13,7 +13,7 @@ export const addToSaved = (id: string, quantity: number) => {
     );
 
     if(itemPosition !== -1) {
-        // Item is already in cart, add to quantity of the item and add to totalPrice
+        // Item is already in saved items, add to quantity of the item and add to totalPrice
         savedItems.update(() => {
             // Calculate new totalPrice
             let updatedItems = items.map((item) => {
@@ -26,7 +26,7 @@ export const addToSaved = (id: string, quantity: number) => {
             return updatedItems;
         });
     } else {
-        // Item not in cart, add object to cart
+        // Item not in saved items, add object to saved items
 
         // Get product information
         let products = get(productItems);
@@ -45,7 +45,7 @@ export const addToSaved = (id: string, quantity: number) => {
     }
 }
 
-// Remove from cart
+// Remove from saved
 export const removeFromSaved = (id: string, quantity: number) => {
     let items = get(savedItems);
     let itemPosition = items.findIndex(
