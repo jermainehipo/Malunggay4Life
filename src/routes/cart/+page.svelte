@@ -62,13 +62,19 @@
 
 <svelte:window bind:innerWidth={screenSize} />
 
-<main class="container max-w-[90rem] mt-[4.37rem] px-[1rem] lg:px-[2rem] xl:px-[7.62rem]">
+<main class="container max-w-[90rem] px-[1rem] lg:px-[2rem] xl:px-[7.62rem]">
 	<div>
-		<h1 class="text-[3rem] leading-[3.7rem] sm:text-[64px] sm:leading-[80px] text-center">Your Shopping Cart</h1>
+		<h1>Your Shopping Cart</h1>
+		<div class="border p-[1rem] rounded-2xl my-4 flex gap-[1.25rem]">
+			<div class="bg-primary-500 rounded-[12rem] p-[0.9rem] w-[3rem] h-[3rem]">
+				<i class="fa-solid fa-check fa-xl"></i>
+			</div>
+			<p>Explore premium supplements with a satisfaction guarantee. Not happy? We've got you covered – your well-being is our commitment.</p>
+		</div>
 	</div>
 
 	{#if screenSize <= 1300}
-	<div class="border-l-2 border-gray-500 p-[1.31rem] w-fit mt-[4rem]">
+	<div class="border-l-2 border-gray-500 p-[1.31rem] w-fit mt-[2rem]">
 		<div class="grid grid-cols-[12rem_minmax(3.75rem,_1fr)] sm:grid-cols-[18.75rem_minmax(3.75rem,_1fr)] border-b-2 border-gray-500 pb-[0.5rem]">
 			<p><b>Subtotal (Items {totalItems})</b></p>
 			<p><b>${subtotal.toFixed(2)}</b></p>

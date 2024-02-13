@@ -7,9 +7,9 @@
 
 </script>
 
-<main class="container max-w-[90rem] mt-[4.37rem] mb-[7.75rem]">
+<main class="container max-w-[90rem] mb-[7.75rem] px-[1rem] lg:px-[2rem] xl:px-[7.62rem]">
 	<div>
-		<h1 class="text-[3rem] leading-[3.7rem] sm:text-[64px] sm:leading-[80px] text-center">Our Premium Moringa Products</h1>
+		<h1>Our Premium Products</h1>
 	</div>
 	<div class="flex flex-wrap justify-center gap-[4rem] lg:gap-[6rem] my-8">
 		<!-- Product Item -->

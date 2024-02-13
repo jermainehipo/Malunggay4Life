@@ -38,7 +38,7 @@
 </script>
 
 <main class="flex flex-col lg:flex-row w-[90rem] px-[2rem] md:px-[7rem] gap-[7.75rem] mt-[3.31rem] mb-[7.19rem]">
-	<div class="flex flex-col gap-[1.25rem] max-w-[20rem] sm:max-w-[37.625rem]">
+	<div class="flex flex-col gap-[1.5rem] max-w-[30rem]">
 		<div class="flex flex-col gap-[2.81rem]">
 			<div>
 				<h2>{data.name}</h2>
@@ -47,10 +47,24 @@
 			<p>{data.slug?.slugDesc1}</p>
 			<p>{data.slug?.slugDesc2}</p>
 		</div>
-		<Counter bind:value={quantity} />
+
+		<div class="flex flex-col gap-[0.75rem]">
+			<div class="flex flex-col">
+				<subtitle>Size</subtitle>
+				<select id="size" name="size" class="text-left btn w-fit px-10">
+
+					<option value="100g">100g</option>
+					<option value="200g">200g</option>
+				</select>
+			</div>
+			<div>
+				<subtitle>Quantity</subtitle>
+				<Counter bind:value={quantity}/>
+			</div>
+		</div>
 		<button class="btn bg-primary-500 w-fit" on:click={add}>
 			Add to Cart <span class="w-[1.25rem]" />${price}
 		</button>
 	</div>
-	<img src={data.src} alt={data.alt} class="max-w-[16rem] md:max-w-[24rem] lg:max-w-[28rem] object-cover" />
+	<img src={data.src} alt={data.alt} class="max-w-[16rem] md:max-w-[24rem] lg:w-[28rem] object-cover" />
 </main>

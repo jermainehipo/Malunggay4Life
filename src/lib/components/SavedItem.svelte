@@ -9,10 +9,12 @@
 </script>
 
 <div class="flex gap-[0.56rem] pb-[3.12rem] border-b-2 border-gray-300">
-    <img src={product.src} alt={product.alt} class="max-w-[12.5rem] max-h-[12.5rem]" />
+    <a href="/products/{product.slug.url}">
+		<img src={product.src} alt={product.alt} class="object-cover min-w-[12rem] min-h-[12.5rem] max-w-[12rem] max-h-[12.5rem] rounded-xl border" />
+	</a>
     <div>
         <div class="flex gap-[2.5rem]">
-            <div class="flex flex-col gap-[1rem] w-[18.75rem] h-[10.625rem]">
+            <div class="flex flex-col gap-[1rem] w-[18.75rem] h-[10rem]">
                 <div>
                     <p><b>{product.name}</b></p>
                     <p>{product.description}</p>
@@ -25,7 +27,7 @@
             <p><b>$19.99</b></p>
             <p>Quantity: {quantity}</p>
         </div>
-        <div class="flex gap-[1.25rem]">
+        <div class="flex gap-[1rem]">
             <button on:click={() => {addToCart(product.id, quantity); removeFromSaved(product.id, quantity)}} class="btn bg-primary-500">
                 Move to Cart
             </button>
