@@ -69,7 +69,9 @@
 			<div class="bg-primary-500 rounded-[12rem] p-[0.9rem] w-[3rem] h-[3rem]">
 				<i class="fa-solid fa-check fa-xl"></i>
 			</div>
-			<p>Explore premium supplements with a satisfaction guarantee. Not happy? We've got you covered – your well-being is our commitment.</p>
+			<span class="grid content-center">
+				<p>Explore premium supplements with a satisfaction guarantee. Not happy? We've got you covered, your well-being is our commitment.</p>
+			</span>
 		</div>
 	</div>
 

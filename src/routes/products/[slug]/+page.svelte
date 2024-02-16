@@ -3,11 +3,13 @@
     import { cartItems, addToCart } from "../../../cart";
     import { getToastStore, type ToastSettings } from '@skeletonlabs/skeleton';
 	import Counter from "$lib/components/Counter.svelte";
+	import { onMount } from "svelte";
 
 	export let data;
 
 	let quantity = 1;
 	let price = "";
+	let loading = true;
 
 	$: price = (quantity * ((!data.price)? 0 : data.price)).toFixed(2);
 
@@ -35,8 +37,16 @@
         toastStore.trigger(t);
     });
 
-</script>
+	onMount(() => {
+		loading = false;
+	});
 
+</script>
+{#if loading}
+	<div class="h-[60rem]">
+		<i class="fa-solid fa-spinner fa-2xl animate-spin absolute top-1/2"></i>
+	</div>
+{:else}
 <main class="flex flex-col lg:flex-row w-[90rem] px-[2rem] md:px-[7rem] gap-[7.75rem] mt-[3.31rem] mb-[7.19rem]">
 	<div class="flex flex-col gap-[1.5rem] max-w-[30rem]">
 		<div class="flex flex-col gap-[2.81rem]">
@@ -68,3 +78,4 @@
 	</div>
 	<img src={data.src} alt={data.alt} class="max-w-[16rem] md:max-w-[24rem] lg:w-[28rem] object-cover" />
 </main>
+{/if}
