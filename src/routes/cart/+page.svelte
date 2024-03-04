@@ -135,7 +135,7 @@
 		</div>
 		<!-- Saved Items -->
 		{#each saved as {product, quantity, totalPrice}}
-			<SavedItem {product} {quantity} {totalPrice}} />
+			<SavedItem {product} {quantity} {totalPrice} />
 		{/each}
 	</div>
 </main>

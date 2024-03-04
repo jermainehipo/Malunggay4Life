@@ -9,6 +9,7 @@ const moringaCapsuleSlug = {
     slugDesc2: 'Elevate your health with the power of Moringa. Order your Pure Organic Moringa Capsules today and embark on a journey to a healthier, more vibrant you!',
     options: [
         {
+            id: 1,
             label: "120pcs",
             price: 25.95,
         },
@@ -50,10 +51,10 @@ const moringaPowderSlug = {
 }
 
 
-export const productItems = writable<Product[]>([
+export const displayProducts = writable<Product[]>([
     {
-        id: 1,
-        stripe_id: "price_1OkJF8AafpXr9MOz28d5hK6a",
+        id: "price_1OkJF8AafpXr9MOz28d5hK6a",
+        search_id: 1,
         name: "Moringa Capsules",
         description: "120 pieces/capsules",
         price: 25.95,
@@ -63,10 +64,10 @@ export const productItems = writable<Product[]>([
         slug: moringaCapsuleSlug
     },
     {
-        id: 2,
-        stripe_id: "price_1Odg8tAafpXr9MOzYB7C8RvB",
-        name: "Moringa Capsules - 60pcs",
-        description: "60 pieces/capsules",
+        id: "price_1Odg8tAafpXr9MOzYB7C8RvB",
+        search_id: 0,
+        name: "Placeholder Item",
+        description: "Example",
         price: 11.99,
         inStock: true,
         src: bottle,
@@ -74,8 +75,8 @@ export const productItems = writable<Product[]>([
         slug: moringaCapsuleSlug
     },
     {
-        id: 3,
-        stripe_id: "price_1Odg9KAafpXr9MOzJsqP8onH",
+        id: "price_1Odg9KAafpXr9MOzJsqP8onH",
+        search_id: 2,
         name: "Moringa Powder",
         description: "50 grams",
         price: 12.00,
@@ -85,10 +86,10 @@ export const productItems = writable<Product[]>([
         slug: moringaPowderSlug
     },
     {
-        id: 4,
-        stripe_id: "price_1Odg9jAafpXr9MOzZt9KD1fO",
-        name: "Moringa Powder - 125g",
-        description: "100 grams",
+        id: "price_1Odg9jAafpXr9MOzZt9KD1fO",
+        search_id: 0,
+        name: "Placeholder Item",
+        description: "Example",
         price: 23.00,
         inStock: true,
         src: pouch,
@@ -97,10 +98,10 @@ export const productItems = writable<Product[]>([
     },
 ]);
 
-export const productsVariations = writable<Product[]>([
+export const productItems = writable<Product[]>([
     {
-        id: 1,
-        stripe_id: "price_1OkJF8AafpXr9MOz28d5hK6a",
+        id: "price_1OkJF8AafpXr9MOz28d5hK6a",
+        search_id: 1,
         name: "Moringa Capsules",
         description: "120 pieces/capsules",
         price: 25.95,
@@ -110,8 +111,8 @@ export const productsVariations = writable<Product[]>([
         slug: moringaCapsuleSlug
     },
     {
-        id: 2,
-        stripe_id: "price_1OqNwOAafpXr9MOzQpsZmrUs",
+        id: "price_1OqNwOAafpXr9MOzQpsZmrUs",
+        search_id: 2,
         name: "Moringa Powder",
         description: "50g",
         price: 12.00,
@@ -121,8 +122,8 @@ export const productsVariations = writable<Product[]>([
         slug: moringaPowderSlug
     },
     {
-        id: 3,
-        stripe_id: "price_1Oj9fTAafpXr9MOzQ5ppGJ33",
+        id: "price_1Oj9fTAafpXr9MOzQ5ppGJ33",
+        search_id: 3,
         name: "Moringa Powder",
         description: "100g",
         price: 23.00,
@@ -132,8 +133,8 @@ export const productsVariations = writable<Product[]>([
         slug: moringaPowderSlug
     },
     {
-        id: 4,
-        stripe_id: "price_1Okws4AafpXr9MOzKG7mSDQM",
+        id: "price_1Okws4AafpXr9MOzKG7mSDQM",
+        search_id: 4,
         name: "Moringa Powder",
         description: "250g",
         price: 30.00,
@@ -143,8 +144,8 @@ export const productsVariations = writable<Product[]>([
         slug: moringaPowderSlug
     },
     {
-        id: 5,
-        stripe_id: "price_1OkwtrAafpXr9MOztSqAYW2x",
+        id: "price_1OkwtrAafpXr9MOztSqAYW2x",
+        search_id: 5,
         name: "Moringa Powder",
         description: "500g",
         price: 39.00,
@@ -154,8 +155,8 @@ export const productsVariations = writable<Product[]>([
         slug: moringaPowderSlug
     },
     {
-        id: 6,
-        stripe_id: "price_1OkwuFAafpXr9MOzxmY2e99B",
+        id: "price_1OkwuFAafpXr9MOzxmY2e99B",
+        search_id: 6,
         name: "Moringa Powder",
         description: "1kg",
         price: 53.00,

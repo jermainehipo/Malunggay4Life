@@ -4,8 +4,8 @@ declare namespace App{
 
 // Includes all child product options/variations
 declare class Product {
-    id: number              // Id for variation lookup
-    stripe_id: string       // Stripe id
+    id: string              // Stripe id
+    search_id: number       // Id for variation lookup
     name: string            // Product name
     description: string     // Short description for cart page
     price: number           // Product price per item
