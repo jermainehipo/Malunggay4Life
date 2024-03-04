@@ -4,14 +4,19 @@
     import { getToastStore, type ToastSettings } from '@skeletonlabs/skeleton';
 	import Counter from "$lib/components/Counter.svelte";
 	import { onMount } from "svelte";
+	import { productsVariations } from "../../../products";
 
 	export let data;
 
 	let quantity = 1;
+	let pricePerItem = data.price;
 	let price = "";
 	let loading = true;
 
-	$: price = (quantity * ((!data.price)? 0 : data.price)).toFixed(2);
+	const products = get(productsVariations);
+
+	$: price = (quantity * ((!pricePerItem)? 0 : pricePerItem)).toFixed(2);
+
 
     const toastStore = getToastStore();
 
@@ -33,12 +38,15 @@
     })
 
     const add = (() => {
+		let select = document.getElementById("variation").value;
         addToCart(data.id, quantity);
         toastStore.trigger(t);
     });
 
 	onMount(() => {
 		loading = false;
+
+		
 	});
 
 </script>
@@ -61,10 +69,10 @@
 		<div class="flex flex-col gap-[0.75rem]">
 			<div class="flex flex-col">
 				<subtitle>Size</subtitle>
-				<select id="size" name="size" class="text-left btn w-fit px-10">
-
-					<option value="100g">100g</option>
-					<option value="200g">200g</option>
+				<select id="variation" bind:value={pricePerItem} class="text-left btn w-fit px-10">
+					{#each data.slug.options as option}
+						<option value="{option.price}">{option.label}</option>
+					{/each}
 				</select>
 			</div>
 			<div>
