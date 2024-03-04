@@ -1,9 +1,9 @@
 import { get } from "svelte/store";
-import { productItems } from "../products";
+import { displayProducts } from "../products";
 
 export const load = async ({ params }) => {
 	
-	const products = get(productItems);
+	const products = get(displayProducts);
 
     const reviewCards = [
         {

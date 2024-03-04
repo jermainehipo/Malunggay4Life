@@ -2,9 +2,10 @@ declare namespace App{
 
 }
 
-// Information Product object, not used directly for cart but is used in reference to add Cart objects
+// Includes all child product options/variations
 declare class Product {
     id: string              // Stripe id
+    search_id: number       // Id for variation lookup
     name: string            // Product name
     description: string     // Short description for cart page
     price: number           // Product price per item
@@ -16,7 +17,13 @@ declare class Product {
         subtitle: string    // Subtitle under product name
         slugDesc1: string   // Top description
         slugDesc2: string   // Bottom description
+        options: Option[]   // Options available (if any) 
     }
+}
+
+declare class Option {
+    label: string   // Variant name
+    price: number   // Variant price
 }
 
 declare class CartItem {

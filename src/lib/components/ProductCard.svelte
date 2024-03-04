@@ -46,7 +46,7 @@
             <i class="fa-solid fa-star" style="color: #ffd500;"></i>
             <i class="fa-solid fa-star" style="color: #ffd500;"></i>
         </div>
-        <p><b>${product.price}</b></p>
+        <p><b>${product.price.toFixed(2)}</b></p>
     </a>
 
 </div>

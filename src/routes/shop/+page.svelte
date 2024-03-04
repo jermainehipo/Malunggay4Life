@@ -1,10 +1,10 @@
 <script>
 	import ProductCard from "$lib/components/ProductCard.svelte";
 	import { get } from "svelte/store";
-	import { productItems } from "../../products";
+	import { displayProducts } from "../../products";
 	import { onMount } from "svelte";
 	
-	const products = get(productItems);
+	const products = get(displayProducts);
 
 	let loading = true;
 

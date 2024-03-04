@@ -22,7 +22,7 @@
 				<p>{product.description}</p>
 			</div>
 			<div class="flex flex-col">
-				<subtitle>${product.price}</subtitle>
+				<subtitle>${product.price.toFixed(2)}</subtitle>
 				<subtitle>{product.inStock ? "In Stock" : "Out of Stock"}</subtitle>
 			</div>
 		</div>
