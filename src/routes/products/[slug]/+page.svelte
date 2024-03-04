@@ -9,7 +9,8 @@
 	export let data;
 
 	let quantity = 1;
-	let pricePerItem = data.price;
+	let selected = [1, 1];
+	let pricePerItem = selected[1];
 	let price = "";
 	let loading = true;
 
@@ -37,16 +38,9 @@
         console.log(cart);
     })
 
-    const add = (() => {
-		let select = document.getElementById("variation").value;
-        addToCart(data.id, quantity);
-        toastStore.trigger(t);
-    });
-
+   
 	onMount(() => {
 		loading = false;
-
-		
 	});
 
 </script>
@@ -69,9 +63,9 @@
 		<div class="flex flex-col gap-[0.75rem]">
 			<div class="flex flex-col">
 				<subtitle>Size</subtitle>
-				<select id="variation" bind:value={pricePerItem} class="text-left btn w-fit px-10">
+				<select bind:value={selected} class="text-left btn w-fit px-10">
 					{#each data.slug.options as option}
-						<option value="{option.price}">{option.label}</option>
+						<option value="{[option.id, option.price]}">{option.label}</option>
 					{/each}
 				</select>
 			</div>
