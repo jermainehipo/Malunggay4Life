@@ -30,23 +30,23 @@
 
 </script>
 <div class="w-fit relative">
-    
-        <button class="btn bg-primary-500 absolute right-0 bg-primary-500 rounded-[12rem] p-[0.5rem] w-[2.5rem] h-[2.5rem]" on:click={add}>
-            <i class="fa-solid fa-plus fa-xl"></i>
-        </button>
-    <a href="/products/{product.slug.url}" class="hover:no-underline">
-        <img src={product.src} alt={product.alt} class="w-[9rem] h-[9rem] md:w-[12.5rem] md:h-[12.5rem]" />
-        <p class="hover:underline mb-[-4px] font-medium">{product.name}</p>
-        <subtitle class="hover:underline">{product.description}</subtitle>
-        <div class="flex">
-            <!-- (January 20, 2024) star from FontAwesome. https://fontawesome.com/icons/star?f=classic&s=solid -->
-            <i class="fa-solid fa-star" style="color: #ffd500;"></i>
-            <i class="fa-solid fa-star" style="color: #ffd500;"></i>
-            <i class="fa-solid fa-star" style="color: #ffd500;"></i>
-            <i class="fa-solid fa-star" style="color: #ffd500;"></i>
-            <i class="fa-solid fa-star" style="color: #ffd500;"></i>
-        </div>
-        <p><b>${product.price.toFixed(2)}</b></p>
-    </a>
-
+    <button class="btn bg-primary-500 absolute right-0 bg-primary-500 rounded-[12rem] pl-[0.65rem] pr-[0.6rem] pt-[0.6rem] w-[2.5rem] h-[2.5rem]" on:click={add}>
+        <i class="fa-solid fa-plus fa-xl"></i>
+    </button>
+   <div class="mt-2 mr-2"> 
+        <a href="/products/{product.slug.url}" class="hover:no-underline">
+            <img src={product.src} alt={product.alt} class="w-[9rem] h-[9rem] md:w-[12.5rem] md:h-[12.5rem] border rounded-[2rem] rounded-tr-[2rem]" />
+            <p class="hover:underline mb-[-4px] font-medium">{product.name}</p>
+            <subtitle class="hover:underline">{product.description}</subtitle>
+            <div class="flex">
+                <!-- (January 20, 2024) star from FontAwesome. https://fontawesome.com/icons/star?f=classic&s=solid -->
+                <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+                <i class="fa-solid fa-star" style="color: #ffd500;"></i>
+            </div>
+            <p><b>${product.price.toFixed(2)}</b></p>
+        </a>
+    </div>
 </div>
