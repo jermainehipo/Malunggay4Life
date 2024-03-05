@@ -21,7 +21,6 @@
         cart = newCartValue;
         cartItemIndex = cart.findIndex((item) => {return item.product.id === product.id })
         cartProduct = cart[cartItemIndex];
-        console.log(cart);
     })
 
     const add = (() => {
@@ -36,8 +35,9 @@
             <i class="fa-solid fa-plus fa-xl"></i>
         </button>
     <a href="/products/{product.slug.url}" class="hover:no-underline">
-        <img src={product.src} alt={product.alt} class="w-[12.5rem] h-[12.5rem]" />
-        <p class="hover:underline">{product.name}</p>
+        <img src={product.src} alt={product.alt} class="w-[9rem] h-[9rem] md:w-[12.5rem] md:h-[12.5rem]" />
+        <p class="hover:underline mb-[-4px] font-medium">{product.name}</p>
+        <subtitle class="hover:underline">{product.description}</subtitle>
         <div class="flex">
             <!-- (January 20, 2024) star from FontAwesome. https://fontawesome.com/icons/star?f=classic&s=solid -->
             <i class="fa-solid fa-star" style="color: #ffd500;"></i>

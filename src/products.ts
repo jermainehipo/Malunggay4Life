@@ -56,7 +56,7 @@ export const displayProducts = writable<Product[]>([
         id: "price_1OkJF8AafpXr9MOz28d5hK6a",
         search_id: 1,
         name: "Moringa Capsules",
-        description: "120 pieces/capsules",
+        description: "120 capsules",
         price: 25.95,
         inStock: true,
         src: bottle,
@@ -75,10 +75,10 @@ export const displayProducts = writable<Product[]>([
         slug: moringaCapsuleSlug
     },
     {
-        id: "price_1Odg9KAafpXr9MOzJsqP8onH",
+        id: "price_1OqNwOAafpXr9MOzQpsZmrUs",
         search_id: 2,
-        name: "Moringa Powder",
-        description: "50 grams",
+        name: "Moringa Powder - 50g",
+        description: "More sizes available ->",
         price: 12.00,
         inStock: true,
         src: pouch,

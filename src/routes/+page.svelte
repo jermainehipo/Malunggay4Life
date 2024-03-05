@@ -127,8 +127,8 @@
 	</div>
 
 	<div class="max-w-[90rem] px-[2rem] md:px-[4rem] lg:px-[7.62rem] py-16">
-		<h2>Our Products</h2>
-		<div class="flex flex-wrap justify-center gap-[4rem] lg:gap-[6rem] my-8">
+		<h2 class="text-center sm:text-left">Our Products</h2>
+		<div class="flex flex-wrap justify-center gap-[1rem] md:gap-[4rem] lg:gap-[6rem] my-8">
 			<!-- Product Item -->
 			{#each data.products as product}
 				<ProductCard product={product}/>

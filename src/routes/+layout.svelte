@@ -107,61 +107,65 @@
 <Toast position="tr" class="mt-[4rem]" buttonDismiss="btn-icon bg-primary-500" />
 <AppShell>
 	<svelte:fragment slot="header">
-		<AppBar background="bg-secondary-500">
-			<svelte:fragment slot="lead">
-				{#if screenSize <= 800}
-					<button name="Expand for Navigation Menu" on:click={openMobileMenu} class="mr-3">
-						<!-- (August 6th, 2023) bars from FontAwesome. https://fontawesome.com/icons/bars?f=classic&s=solid -->
-						<i class="fa-solid fa-bars fa-xl" />
-					</button>
-				{/if}
-				<a href="/">
-					<img class="max-h-[3.75rem]" alt="Malunggay 4 Life Logo" src={logo} />
-				</a>
-			</svelte:fragment>
-			<svelte:fragment slot="trail">
-				{#if screenSize > 800}
-					<div class="flex gap-[2.5rem] content-center">
-						<a href="/shop" class="font-bold place-self-center">Shop</a>
-						<a href="/contact-us" class="font-bold place-self-center">Contact Us</a>
-						<a href="/our-story" class="font-bold place-self-center">Our Story</a>
-						<button id="account_1" class="w-8 h-12">
-							<!-- (January 12st, 2024) user from FontAwesome. https://fontawesome.com/icons/user?f=classic&s=solid -->
-							{#if !auth.currentUser}
-							<a href="/log-in">
-								<i class="fa-solid fa-user fa-lg"></i>
-							</a>
-							{:else} 
-							<a href="/account">
-								<i class="fa-solid fa-user fa-lg"></i>
-							</a>
-							{/if}
-						</button>
-						<a href="/cart" class="btn bg-primary-500 w-[8rem] m-0 flex gap-2" data-sveltekit-preload-data="hover">
-							<i class="fa-solid fa-cart-shopping"></i>
-							Cart {totalItems}
+		<div class="flex justify-center">
+			<div class="w-[90rem] bg-black">
+				<AppBar background="bg-secondary-500">
+					<svelte:fragment slot="lead">
+						{#if screenSize <= 800}
+							<button name="Expand for Navigation Menu" on:click={openMobileMenu} class="mr-3">
+								<!-- (August 6th, 2023) bars from FontAwesome. https://fontawesome.com/icons/bars?f=classic&s=solid -->
+								<i class="fa-solid fa-bars fa-xl" />
+							</button>
+						{/if}
+						<a href="/">
+							<img class="max-h-[3.75rem]" alt="Malunggay 4 Life Logo" src={logo} />
 						</a>
-					</div>
-				{:else}
-					<button class="w-8 h-12">
-						<!-- (January 12st, 2024) user from FontAwesome. https://fontawesome.com/icons/user?f=classic&s=solid -->
-						{#if !auth.currentUser}
-							<a href="/log-in">
-								<i class="fa-solid fa-user fa-lg"></i>
+					</svelte:fragment>
+					<svelte:fragment slot="trail">
+						{#if screenSize > 800}
+							<div class="flex gap-[2.5rem] content-center">
+								<a href="/shop" class="font-bold place-self-center">Shop</a>
+								<a href="/contact-us" class="font-bold place-self-center">Contact Us</a>
+								<a href="/our-story" class="font-bold place-self-center">Our Story</a>
+								<button id="account_1" class="w-8 h-12">
+									<!-- (January 12st, 2024) user from FontAwesome. https://fontawesome.com/icons/user?f=classic&s=solid -->
+									{#if !auth.currentUser}
+									<a href="/log-in">
+										<i class="fa-solid fa-user fa-lg"></i>
+									</a>
+									{:else} 
+									<a href="/account">
+										<i class="fa-solid fa-user fa-lg"></i>
+									</a>
+									{/if}
+								</button>
+								<a href="/cart" class="btn bg-primary-500 w-[8rem] m-0 flex gap-2" data-sveltekit-preload-data="hover">
+									<i class="fa-solid fa-cart-shopping"></i>
+									Cart {totalItems}
+								</a>
+							</div>
+						{:else}
+							<button class="w-8 h-12">
+								<!-- (January 12st, 2024) user from FontAwesome. https://fontawesome.com/icons/user?f=classic&s=solid -->
+								{#if !auth.currentUser}
+									<a href="/log-in">
+										<i class="fa-solid fa-user fa-lg"></i>
+									</a>
+									{:else} 
+									<a href="/account">
+										<i class="fa-solid fa-user fa-lg"></i>
+									</a>
+									{/if}
+							</button>
+							<a href="/cart" class="btn variant-filled-primary m-0 flex gap-2" data-sveltekit-preload-data="hover">
+								<i class="fa-solid fa-cart-shopping"></i>
+								{totalItems}
 							</a>
-							{:else} 
-							<a href="/account">
-								<i class="fa-solid fa-user fa-lg"></i>
-							</a>
-							{/if}
-					</button>
-					<a href="/cart" class="btn variant-filled-primary m-0 flex gap-2" data-sveltekit-preload-data="hover">
-						<i class="fa-solid fa-cart-shopping"></i>
-						{totalItems}
-					</a>
-				{/if}
-			</svelte:fragment>
-		</AppBar>
+						{/if}
+					</svelte:fragment>
+				</AppBar>
+			</div>
+		</div>
 	</svelte:fragment>
 	<main class="bg-secondary-500 flex items-center justify-center">
 		<slot />

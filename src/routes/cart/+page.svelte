@@ -13,7 +13,10 @@
 	let saved = get(savedItems);
 	let totalItems = 0;
 	let subtotal = 0;
+	let freeShippingCost = 0;
 	let screenSize: number;
+
+	$: freeShippingCost = (79.00 - subtotal).toFixed(2);
 
 	// Calculate total number of items in cart
 	if (cart.length != 0) {
@@ -38,6 +41,7 @@
 	});
 
 	async function checkout() {
+		if (cart.length == 0) return; // If there are no items in the cart, do nothing
 		await fetch("api/stripeCheckout", {
 			method: "POST",
 			headers: {
@@ -125,6 +129,9 @@
 				<p>${subtotal.toFixed(2)}</p>
 			</div>
 			<button class="btn bg-primary-500" on:click={() => checkout()}>Checkout</button>
+			<div>
+				<p>Spend ${freeShippingCost} more for free shipping!</p>
+			</div>
 		</div>
 		{/if}
 	</div>

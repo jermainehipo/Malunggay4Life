@@ -23,7 +23,7 @@
 	<div>
 		<h1>Our Premium Products</h1>
 	</div>
-	<div class="flex flex-wrap gap-[4rem] lg:gap-[2rem] my-8">
+	<div class="flex flex-wrap gap-[1rem] md:gap-[4rem] lg:gap-[2rem] my-8">
 		<!-- Product Item -->
 		{#each products as product}
 			<ProductCard product={product}/>
