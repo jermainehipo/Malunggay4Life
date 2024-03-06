@@ -1,16 +1,8 @@
 import type { RequestHandler } from "./$types";
-import Stripe from "stripe";
+import { stripe } from "$lib/stripe"
 import dotenv from "dotenv";
 
 dotenv.config();
-
-const stripeKey = process.env.STRIPE_KEY;
-
-if (!stripeKey) { throw new Error("No Stripe Key")}
-
-const stripe = new Stripe(stripeKey, {
-    apiVersion: "2023-10-16",
-})
 
 // localhost:5173/api/stripeCheckout
 
