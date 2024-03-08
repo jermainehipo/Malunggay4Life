@@ -5,6 +5,7 @@
 	import { onDestroy } from "svelte";
 	import SavedItem from "../../lib/components/SavedItem.svelte";
 	import { savedItems } from "../../saved";
+	import { ProgressBar } from "@skeletonlabs/skeleton";
 
 	export let data;
 
@@ -81,11 +82,23 @@
 
 	{#if screenSize <= 1300}
 	<div class="border-l-2 border-gray-500 p-[1.31rem] w-fit mt-[2rem]">
+		<div class="mb-[2rem] flex flex-col gap-[0.5rem]">
+			{#if freeShippingCost > 0}
+				<p>Spend ${freeShippingCost} more for free shipping!</p>
+			{:else}
+				<p>Yay! You've earned free shipping!</p>
+			{/if}
+			<ProgressBar max={79} value={ subtotal } meter="bg-primary-500"></ProgressBar>
+		</div>
 		<div class="grid grid-cols-[12rem_minmax(3.75rem,_1fr)] sm:grid-cols-[18.75rem_minmax(3.75rem,_1fr)] border-b-2 border-gray-500 pb-[0.5rem]">
 			<p><b>Subtotal (Items {totalItems})</b></p>
 			<p><b>${subtotal.toFixed(2)}</b></p>
 			<p>Shipping</p>
-			<p>TBD</p>
+			{#if freeShippingCost > 0}
+				<p>TBD</p>
+			{:else}
+				<p><b>FREE</b></p>
+			{/if}
 			<p>Tax</p>
 			<p>TBD</p>
 		</div>
@@ -99,7 +112,7 @@
 
 	<div class="flex mt-[3.31rem] mb-[7.19rem]">
 		<!-- Item Table -->
-		<div class="flex flex-wrap gap-[2rem] md:gap-[1.25rem]">
+		<div class="flex flex-wrap gap-[1rem] md:gap-[1.25rem]">
 			{#if screenSize > 767}
 				<div class="flex gap-[1.25rem] w-[50rem] h-fit pb-[0.5rem] border-b-2 border-gray-500">
 					<p class="w-[32rem]"><b>Items</b></p>
@@ -116,11 +129,23 @@
 		<!-- Total -->
 		{#if screenSize > 1300}
 		<div class="border-l-2 border-gray-500 p-[1.31rem]">
+			<div class="mb-[3rem] flex flex-col gap-[0.5rem]">
+				{#if freeShippingCost > 0}
+					<p>Spend ${freeShippingCost} more for free shipping!</p>
+				{:else}
+					<p>Yay! You've earned free shipping!</p>
+				{/if}
+				<ProgressBar max={79} value={ subtotal } meter="bg-primary-500"></ProgressBar>
+			</div>
 			<div class="grid grid-cols-[18.75rem_minmax(3.75rem,_1fr)] border-b-2 border-gray-500 pb-[0.5rem]">
 				<p><b>Subtotal (Items {totalItems})</b></p>
 				<p><b>${subtotal.toFixed(2)}</b></p>
 				<p>Shipping</p>
-				<p>TBD</p>
+				{#if freeShippingCost > 0}
+					<p>TBD</p>
+				{:else}
+					<p><b>FREE</b></p>
+				{/if}
 				<p>Tax</p>
 				<p>TBD</p>
 			</div>
@@ -129,9 +154,6 @@
 				<p>${subtotal.toFixed(2)}</p>
 			</div>
 			<button class="btn bg-primary-500" on:click={() => checkout()}>Checkout</button>
-			<div>
-				<p>Spend ${freeShippingCost} more for free shipping!</p>
-			</div>
 		</div>
 		{/if}
 	</div>
