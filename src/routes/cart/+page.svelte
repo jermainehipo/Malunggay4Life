@@ -14,7 +14,7 @@
 	let saved = get(savedItems);
 	let totalItems = 0;
 	let subtotal = 0;
-	let freeShippingCost = 0;
+	let freeShippingCost = "";
 	let screenSize: number;
 
 	$: freeShippingCost = (79.00 - subtotal).toFixed(2);
