@@ -1,26 +1,34 @@
-<script>
-    import express from "express";
-	import Stripe from 'stripe';
-    import type { Request, Response } from "express";
-    const app = express();
-    const stripeKey = process.env.STRIPE_KEY;
+<script lang="ts">
+	import { stripe } from "$lib/stripe";
+	import { onMount } from "svelte";
 
-    if (!stripeKey) { throw new Error("No Stripe Key")}
+	interface Address {
+		line1: string;
+		city: string;
+		state: string;
+		postal_code: string;
+		country: string;
+	}
 
-    const stripe = new Stripe(stripeKey, {
-        apiVersion: "2023-10-16",
-    })
+	let name: string = "";
+	let address: Address | null = null;
+	let session_id = "";
 
-    let name = "";
+	onMount(async () => {
+		const params = new URLSearchParams(window.location.search);
+		session_id = params.get("session_id") || "";
+		if (!session_id) {
+			return;
+		}
 
-    app.get("/order/sucess", async(req: any, res: any) => {
-        let { order, session_id } = req.query;
-        const session = await stripe.checkout.sessions.retrieve(session_id);
-        const customer = await stripe.customers.retrieve(session.customer);
-
-        console.log(customer);
-        name = customer.name;
-    })
+		const session = await stripe.checkout.sessions.retrieve(session_id);
+		if (session?.shipping_details) {
+			name = session.shipping_details.name || "";
+			address = (session.shipping_details.address as Address) || null;
+		}
+	});
 </script>
 
 Success {name}
+
+{address?.city} {address?.country}

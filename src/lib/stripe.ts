@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
 
-const stripeKey = process.env.STRIPE_KEY;
+const stripeKey = import.meta.env.VITE_STRIPE_KEY;
 
 if (!stripeKey) { throw new Error("No Stripe Key")}
 

@@ -52,11 +52,6 @@
 
 		const currentPath = window.location.pathname; // Get current path
 
-		// Have pages start from the top everytime besides for account page
-		if (!scrollExceptions.includes(currentPath)) {
-			setContext("scroll", "top");
-		}
-
 		const unsubscribeAuth = auth.onAuthStateChanged(async (user) => {
 			// If not authenticated and attempted access on auth route, redirect
 			if (!user && authRoutes.includes(currentPath)) {
@@ -108,7 +103,7 @@
 <AppShell>
 	<svelte:fragment slot="header">
 		<div class="flex justify-center">
-			<div class="w-[90rem] bg-black">
+			<div class="max-w-[90rem] w-full fixed">
 				<AppBar background="bg-secondary-500">
 					<svelte:fragment slot="lead">
 						{#if screenSize <= 800}
@@ -167,7 +162,7 @@
 			</div>
 		</div>
 	</svelte:fragment>
-	<main class="bg-secondary-500 flex items-center justify-center">
+	<main class="bg-secondary-500 flex mt-[5.72rem] items-center justify-center">
 		<slot />
 	</main>
 	<div class="flex justify-center">

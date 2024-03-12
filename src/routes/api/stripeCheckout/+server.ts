@@ -1,18 +1,8 @@
 import type { RequestHandler } from "./$types";
 import dotenv from "dotenv";
+import { stripe } from "$lib/stripe";
 
 dotenv.config();
-
-import Stripe from 'stripe';
-
-const stripeKey = process.env.STRIPE_KEY;
-
-if (!stripeKey) { throw new Error("No Stripe Key")}
-
-const stripe = new Stripe(stripeKey, {
-    apiVersion: "2023-10-16",
-})
-
 
 // localhost:5173/api/stripeCheckout
 
@@ -38,7 +28,7 @@ export const POST: RequestHandler = async ({request}) => {
         shipping_address_collection: {
             allowed_countries: ["CA", "US"],
         },
-        success_url: "http://localhost:5173/success",
+        success_url: "http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}",
         cancel_url: "http://localhost:5173/cancel",
         
     })
