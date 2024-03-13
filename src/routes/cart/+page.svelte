@@ -7,8 +7,6 @@
 	import { savedItems } from "../../saved";
 	import { ProgressBar } from "@skeletonlabs/skeleton";
 
-	export let data;
-
 	// Cart button text updating
 	let cart = get(cartItems);
 	let saved = get(savedItems);
