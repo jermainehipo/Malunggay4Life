@@ -1,11 +1,11 @@
 import { stripe } from "$lib/stripe";
 import type { RequestHandler } from "@sveltejs/kit";
 
-const endpointSecret = ""; // TODO: Set webhook signing secret.
+const endpointSecret = import.meta.env.VITE_STRIPE_KEY;
 
 // POST /webhook
 
-export const post: RequestHandler = async ({ request }) => {
+export const post: RequestHandler = async ({request}) => {
 	let event: any;
 
 	// Verify endpoint secret
