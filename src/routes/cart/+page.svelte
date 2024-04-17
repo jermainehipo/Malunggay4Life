@@ -12,10 +12,10 @@
 	let saved = get(savedItems);
 	let totalItems = 0;
 	let subtotal = 0;
-	let freeShippingCost = "";
+	let freeShippingCost = 79.00;
 	let screenSize: number;
 
-	$: freeShippingCost = (79.00 - subtotal).toFixed(2);
+	$: freeShippingCost = 79.00 - subtotal;
 
 	// Calculate total number of items in cart
 	if (cart.length != 0) {
@@ -41,7 +41,7 @@
 
 	async function checkout() {
 		if (cart.length == 0) return; // If there are no items in the cart, do nothing
-		await fetch("api/stripeCheckout", {
+		await fetch("../api/stripeCheckout", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json"
@@ -65,24 +65,22 @@
 
 <svelte:window bind:innerWidth={screenSize} />
 
-<main class="container max-w-[90rem] px-[1rem] lg:px-[2rem] xl:px-[7.62rem]">
-	<div>
-		<h1>Your Shopping Cart</h1>
-		<div class="border p-[1rem] rounded-2xl my-4 flex gap-[1.25rem]">
-			<div class="bg-primary-500 rounded-[12rem] p-[0.9rem] w-[3rem] h-[3rem]">
-				<i class="fa-solid fa-check fa-xl"></i>
-			</div>
-			<span class="grid content-center">
-				<p>Explore premium supplements with a satisfaction guarantee. Not happy? We've got you covered, your well-being is our commitment.</p>
-			</span>
+<main class="container max-w-[90rem] px-[1rem] lg:px-[2rem] xl:px-[7.62rem] mt-[4.37rem]">
+	<h1 class="text-center">Your Shopping Cart</h1>
+	<div class="border p-[1rem] rounded-2xl my-4 flex gap-[1.25rem] mt-[3.31rem]">
+		<div class="bg-primary-500 rounded-[12rem] px-[0.9rem] py-[0.8rem] w-[3rem] h-[3rem]">
+			<i class="fa-solid fa-check fa-xl"></i>
 		</div>
+		<span class="grid content-center">
+			<p>Explore premium supplements with a satisfaction guarantee. Not happy? We've got you covered, your well-being is our commitment.</p>
+		</span>
 	</div>
 
 	{#if screenSize <= 1300}
-	<div class="border-l-2 border-gray-500 p-[1.31rem] w-fit mt-[2rem]">
+	<div class="border-l-2 border-gray-500 p-[1.31rem] w-fit">
 		<div class="mb-[2rem] flex flex-col gap-[0.5rem]">
 			{#if freeShippingCost > 0}
-				<p>Spend ${freeShippingCost} more for free shipping!</p>
+				<p>Spend ${freeShippingCost.toFixed(2)} more for free shipping!</p>
 			{:else}
 				<p>Yay! You've earned free shipping!</p>
 			{/if}
@@ -129,7 +127,7 @@
 		<div class="border-l-2 border-gray-500 p-[1.31rem]">
 			<div class="mb-[3rem] flex flex-col gap-[0.5rem]">
 				{#if freeShippingCost > 0}
-					<p>Spend ${freeShippingCost} more for free shipping!</p>
+					<p>Spend ${freeShippingCost.toFixed(2)} more for free shipping!</p>
 				{:else}
 					<p>Yay! You've earned free shipping!</p>
 				{/if}

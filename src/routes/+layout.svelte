@@ -122,18 +122,20 @@
 								<a href="/shop" class="font-bold place-self-center">Shop</a>
 								<a href="/contact-us" class="font-bold place-self-center">Contact Us</a>
 								<a href="/our-story" class="font-bold place-self-center">Our Story</a>
-								<button id="account_1" class="w-8 h-12">
-									<!-- (January 12st, 2024) user from FontAwesome. https://fontawesome.com/icons/user?f=classic&s=solid -->
-									{#if !auth.currentUser}
-									<a href="/log-in">
+								<!-- (January 12st, 2024) user from FontAwesome. https://fontawesome.com/icons/user?f=classic&s=solid -->
+								{#if !auth.currentUser}
+								<a href="/log-in">
+									<button id="account_1" class="w-8 h-12">
 										<i class="fa-solid fa-user fa-lg"></i>
-									</a>
-									{:else} 
-									<a href="/account">
+									</button>
+								</a>
+								{:else} 
+								<a href="/account">
+									<button id="account_1" class="w-8 h-12">
 										<i class="fa-solid fa-user fa-lg"></i>
-									</a>
-									{/if}
-								</button>
+									</button>
+								</a>
+								{/if}
 								<a href="/cart" class="btn bg-primary-500 w-[8rem] m-0 flex gap-2" data-sveltekit-preload-data="hover">
 									<i class="fa-solid fa-cart-shopping"></i>
 									Cart {totalItems}

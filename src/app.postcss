@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Young+Serif&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Young+Serif&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,22 +10,25 @@ html {
 	overflow-auto;
 }
 
-.tag {
-	font-family: Comfortaa;
-}
-
 body {
 	box-sizing: border-box;
 	font-family: 'Plus Jakarta Sans', sans-serif;
     color: black;
 }
 
+.tag {
+	font-family: "Comfortaa";
+	font-weight: 700;
+}
+
 h1 {
 	font-family: inherit;
-	font-style: inherit;
-	font-weight: 700;
-	font-size: 40px;
-	line-height: 48px;
+	font-style: bold;
+	font-weight: 800;
+	font-size: 64px;
+	letter-spacing: -px;
+	line-height: 72px;
+	color: #473D32;
 }
 
 h2 {
@@ -76,12 +78,6 @@ motto {
 	font-family: inherit;
 	font-style: inherit;
 	font-weight: 700;
-	font-size: 64px;
-	line-height: 72px;
-}
-
-
-.h1 {
 	font-size: 64px;
 	line-height: 72px;
 }

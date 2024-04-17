@@ -136,7 +136,7 @@
 		</div>
 	</div>
 
-	<div class="bg-primary-500 max-w-[90rem] px-[2rem] md:px-[4rem] min-h-[46.75rem]lg:px-[7.62rem] py-16">
+	<div class="bg-primary-500 max-w-[90rem] px-[2rem] md:px-[4rem] min-h-[46.75rem] lg:px-[7.62rem] py-16">
 		<h2>Our Story</h2>
 		<div class="lg:flex gap-[2.94rem]">
 			<div class="py-[5.56rem] max-w-[41.3125rem]">
