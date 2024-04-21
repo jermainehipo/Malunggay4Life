@@ -1,20 +1,12 @@
-<script lang="ts">
+<script>
 	import { stripe } from "$lib/stripe";
 	import { onMount } from "svelte";
 
-	interface Address {
-		line1: string;
-		city: string;
-		state: string;
-		postal_code: string;
-		country: string;
-	}
-
-	let name: string = "";
-	let address: Address | null = null;
+	let shippingName, shippingCity, shippingCountry, shippingLine1, shippingLine2, shippingPostalCode, shippingState, shippingCost, customerEmail = "";
+	let subtotal, shippingTotal, tax, total;
 	let session_id = "";
 
-	let freeShippingCost = 0;
+	let loading = true;
 
 	onMount(async () => {
 		const params = new URLSearchParams(window.location.search);
@@ -25,12 +17,33 @@
 
 		const session = await stripe.checkout.sessions.retrieve(session_id);
 		if (session?.shipping_details) {
-			name = session.shipping_details.name || "";
-			address = (session.shipping_details.address as Address) || null;
+
+			shippingName = session.shipping_details.name || "";
+			shippingCity = session.shipping_details.address.city || "";
+			shippingCountry = session.shipping_details.address.country || "";
+			shippingLine1 = session.shipping_details.address.line1 || "";
+			shippingLine2 = session.shipping_details.address.line2 || "";
+			shippingPostalCode = session.shipping_details.address.postal_code || "";
+			shippingState = session.shipping_details.address.state || "";
+			customerEmail = session.customer_details.email || "";
+
+			// Monetary amounts in Stripe are in cents so divide by 100
+			subtotal = session.amount_subtotal / 100;
+			shippingTotal = session.total_details.amount_shipping / 100;
+			tax = session.total_details.amount_tax / 100;
+			total = session.amount_total / 100;
+
+			console.log(session);
+			loading = false;
 		}
+
 	});
 </script>
 
+{#if loading}
+	<!-- TODO - add skeleton loading -->
+	<p>Loading</p>
+{:else}
 <main class="container max-w-[90rem] mb-[7.75rem] px-[1rem] lg:px-[2rem] xl:px-[7.62rem] mt-[4rem]">
 	<h1 class="text-center">Thank you for your order!</h1>
 	<h2 class="text-center text-[32px]">We'll email you as soon as it ships.</h2>
@@ -135,20 +148,16 @@
 			<div>
 				<p>Order summary</p>
 				<div class="grid grid-cols-[12rem_minmax(3.75rem,_1fr)] sm:grid-cols-[16rem_minmax(3.75rem,_1fr)] border-b-2 border-gray-500 pb-[0.5rem] mt-[1rem]">
-					<p><b>Subtotal (Items {name})</b></p>
-					<p><b>${name}</b></p>
+					<p><b>Subtotal (Items)</b></p>
+					<p><b>${subtotal}</b></p>
 					<p>Shipping</p>
-					{#if freeShippingCost > 0}
-						<p>TBD</p>
-					{:else}
-						<p><b>FREE</b></p>
-					{/if}
+					<p>${shippingTotal}</p>
 					<p>Tax</p>
-					<p>TBD</p>
+					<p>${tax}</p>
 				</div>
 				<div class="grid grid-cols-[12rem_minmax(3.75rem,_1fr)] sm:grid-cols-[16rem_minmax(3.75rem,_1fr)] my-[0.5rem]">
-					<p>Estimated Total</p>
-					<p>${name}</p>
+					<p>Total</p>
+					<p>${total}</p>
 				</div>
 			</div>
 			<div>
@@ -156,16 +165,16 @@
 				<div class="mt-[1rem]">
 					<p>Regular Shipping</p>
 					<p>Arrives by Monday, January 1</p>
-					<p>Order #1234567890</p>
 				</div>
 			</div>
 			<div>
 				<p>Shipping address</p>
 				<div class="mt-[1rem]">
-					<p class="font-bold">John Doe</p>
-					<p>8440 109th St NW</p>
-					<p>Edmonton, Alberta Canada</p>
-					<p>johndoe2340@gmail.com</p>
+					<p class="font-bold">{shippingName}</p>
+					<p>{shippingLine1}</p>
+					<p>{shippingLine2}</p>
+					<p>{shippingCity}, {shippingState} {shippingCountry}</p>
+					<p>{customerEmail}</p>
 				</div>
 			</div>
 			<div>
@@ -180,17 +189,10 @@
 		</div>
 	</div>
 </main>
+{/if}
 
 
 
 <!-- {name}
 
 {address?.city} {address?.country} -->
-
-<style>
-	.arrow {
-		width: 100px;
-		border-top: 1px solid black;
-	}
-
-</style>

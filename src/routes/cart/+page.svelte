@@ -47,7 +47,10 @@
 				"content-type": "application/json"
 			},
 			body: JSON.stringify(
-				{ items: cart }
+				{ 
+					items: cart,
+					freeShipping: (freeShippingCost <= 0),
+				}
 			)
 		}).then((data) => {
 			return data.json();

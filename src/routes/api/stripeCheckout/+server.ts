@@ -13,12 +13,21 @@ export const POST: RequestHandler = async ({request}) => {
     
     const data = await request.json();
     const items = data.items;
+    const freeShipping = data.freeShipping;
+    let shippingOptions = [
+        {
+            shipping_rate: 'shr_1OdgZWAafpXr9MOz9ACxFGYD'
+        }
+    ]
 
     // Change all items to have id as price instead for Stripe
     let lineItems : any = [];
     items.forEach((item: any) => {
         lineItems.push({price: item.product.id, quantity: item.quantity});
     })
+
+    // Set shipping options to free shipping if freeShipping is true
+    if (freeShipping) shippingOptions = [];
 
     // Creates Stripe checkout session/URL
     const session = await stripe.checkout.sessions.create({
@@ -28,6 +37,7 @@ export const POST: RequestHandler = async ({request}) => {
         shipping_address_collection: {
             allowed_countries: ["CA", "US"],
         },
+        shipping_options: shippingOptions,
         success_url: "http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}",
         cancel_url: "http://localhost:5173/cancel",
         
