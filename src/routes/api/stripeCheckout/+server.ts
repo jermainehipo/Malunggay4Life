@@ -38,8 +38,8 @@ export const POST: RequestHandler = async ({request}) => {
             allowed_countries: ["CA", "US"],
         },
         shipping_options: shippingOptions,
-        success_url: "http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}",
-        cancel_url: "http://localhost:5173/cancel",
+        success_url: "https://malunggay4-life.vercel.app/success?session_id={CHECKOUT_SESSION_ID}",
+        cancel_url: "https://malunggay4-life.vercel.app/cancel",
         
     })
 
